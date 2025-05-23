@@ -13,19 +13,19 @@ function Header() {
             <div className="search">
                 <input type="text" placeholder="Buscar un producto..."/>
                 <div className="search-icon">
-                    <img src="../../public/assets/Vector.png" alt="" />
+                    <img src="/assets/Vector.png" alt="" />
                 </div>
             </div> 
             <div className="right-header">
                 <div className="cart-info">
-                    <img src="../../public/assets/carrito.png" alt="" className="icon-cart"/>
+                    <img src="/assets/carrito.png" alt="" className="icon-cart"/>
                     <div>
                         <p className="p-carrito">Carrito</p>
                         <p className="p-precio">S/ 100.00</p>
                     </div>
                 </div>
                 <div className="user-info">
-                    <img src="../../public/assets/user.png" alt=""  className="icon-user"/>
+                    <img src="/assets/user.png" alt=""  className="icon-user"/>
                     <div>
                         <p className="p-user">User</p>
                         <p className="p-cuenta">cuenta</p>
