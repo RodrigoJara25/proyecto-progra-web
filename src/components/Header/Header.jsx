@@ -1,7 +1,37 @@
+import "./Header.scss"
+
 function Header() {
     return (
-        <div>
-
+        <div className="header">
+            <div className="left-header">
+                <div>
+                    <p className="logo">
+                        Mi-Tiendita<span>.</span>
+                    </p>
+                </div>
+            </div>
+            <div className="search">
+                <input type="text" placeholder="Buscar un producto..."/>
+                <div className="search-icon">
+                    <img src="../../public/assets/Vector.png" alt="" />
+                </div>
+            </div> 
+            <div className="right-header">
+                <div className="cart-info">
+                    <img src="../../public/assets/carrito.png" alt="" className="icon-cart"/>
+                    <div>
+                        <p className="p-carrito">Carrito</p>
+                        <p className="p-precio">S/ 100.00</p>
+                    </div>
+                </div>
+                <div className="user-info">
+                    <img src="../../public/assets/user.png" alt=""  className="icon-user"/>
+                    <div>
+                        <p className="p-user">User</p>
+                        <p className="p-cuenta">cuenta</p>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
