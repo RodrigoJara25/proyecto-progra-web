@@ -1,0 +1,121 @@
+.container-main{
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    width: 90%;
+    margin-top: 30px;
+    padding-left: 5rem;
+}
+.lista-producto{
+    border: 1px solid #c6c6c6;
+    border-radius: 10px;
+    
+}
+.tabla-productos{
+    border-collapse: collapse;   /* permite redondear */
+    width: 100%;
+    border-radius: 10px;
+    & img{
+        width: 3.5rem;
+        height: auto;
+        cursor: pointer;
+    }
+    & th, td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        vertical-align: middle;
+        border-bottom: 1px solid #A9A9A9; 
+    }& .tabla-productos th {
+        background-color: white;
+        color: black;
+        font-weight: 400;
+    }
+}
+.tabla-productos tr.productos:hover {
+    background-color: #ffffff;
+}
+tr:last-child td {
+    border-bottom: none; /* evita doble línea al final */
+}
+
+h1{
+    text-align: start;
+    padding: 0px;
+    margin: 0px;
+}
+input{
+    border: #9A9A9A 1px solid;
+    border-radius: 5px;
+    width: 55rem;
+    padding-left: 1rem ;
+}
+input::placeholder {
+    color: #9A9A9A;
+}
+.busqueda{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 0.5rem;
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: end;
+    gap: 1rem;
+    
+    & button{
+        all: unset;
+        background-color: #FE624C;
+        border-radius: 5px;
+        color: white;
+        height: 2.2rem;
+        cursor: pointer;
+        text-align: center;
+
+    }& .Agregar{
+        width: 16rem;
+
+    }& .Buscar{
+        width: 6.5rem;
+    }& .Categorias{
+        width: 8rem;
+    }
+}
+
+.paginacion{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    & button{
+        all: unset;
+        border-radius: 50%;
+        color: white;
+        height: 2.2rem;
+        cursor: pointer;
+        text-align: center;
+        
+    }& .anterior{
+        background-color: #FE624C;
+        width: 3rem;
+    }& .siguiente{
+        width: 3rem;
+        color: black;
+
+    }
+}
+.acciones{
+    display: flex;
+    flex-direction: row;
+    img {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+    
+}

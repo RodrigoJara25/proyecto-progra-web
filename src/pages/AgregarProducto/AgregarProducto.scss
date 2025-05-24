@@ -1,0 +1,133 @@
+.contenedor-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.agregarProducto {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffffff;
+    width: 80%;
+    top: 10%;
+    left: 50%;
+    gap: 2rem;
+    margin: 50px;
+    h1{
+        font-size: 1.5rem;
+    }
+}
+
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: #D5D5D5 1px solid;
+    border-radius: 5px;
+    form{
+        display: flex;
+        flex-direction: row;
+        gap: 14rem;
+
+    }
+
+}
+.group-1{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    input{
+        border: #9A9A9A 1px solid;
+        border-radius: 5px;
+        width: 20rem;
+        padding-left: 1rem ;
+    }
+}
+.group-2{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    input{
+        border: #9A9A9A 1px solid;
+        border-radius: 5px;
+        width: 20rem;
+        padding-left: 1rem ;
+    }
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    input{
+        height: 2rem;
+    }#descripcion{
+        border: #9A9A9A 1px solid;
+        border-radius: 5px;
+        height: 8rem;
+        padding-right: 20px;
+        padding-bottom: 5.5rem;
+    }
+}
+
+#archivo{
+    display: none;
+}
+button{
+        all: unset;
+        background-color: #FE624C;
+        border-radius: 5px;
+        color: white;
+        width: 14rem;
+        height: 2.5rem;
+        cursor: pointer;
+        text-align: center;
+}
+.subir-imagen{
+    border: #9A9A9A 2px dashed;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 31.25rem;
+    height: 22.563rem;
+    img{
+        width: 20%;
+        height: auto;
+        object-fit: cover;
+    }.btn-file{
+        all: unset;
+
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #D4D4D4;
+        border-radius: 5px;
+        color: #464646;
+        width: 13rem;
+        height: 2.5rem;
+        cursor: pointer;
+
+    }
+}
+.stockproducto{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: end;
+    input{
+        width: 15rem;
+        height: 2.5rem;
+    }
+}
