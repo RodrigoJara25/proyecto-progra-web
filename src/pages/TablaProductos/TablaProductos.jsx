@@ -1,7 +1,7 @@
 import "./tablaProductos.scss" 
 import producto1 from '../../../public/assets/producto1.jpg';
-import edit from '../../../public/assets/edit.png';
-import borrar from '../../../public/assets/borrar.png';
+import edit from '../../../public/assets/editar.png';
+import borrar from '../../../public/assets/delete.png';
 
 
 const TablaProductos = () => {
@@ -40,8 +40,8 @@ const TablaProductos = () => {
                         <td><b>Frutas y verduras</b></td>
                         <td>10</td>
                         <td>
-                            <img src={edit} alt="Botón" />
-                            <img src={borrar} alt="Botón" />                       
+                            <img src={edit} className="icono3" alt="Botón" />
+                            <img src={borrar} className="icono3" alt="Botón" />                       
                         </td>
                     </tr>
                     <tr className="productos">
@@ -53,8 +53,10 @@ const TablaProductos = () => {
                         <td><b>Frutas y verduras</b></td>
                         <td>10</td>
                         <td>
-                            <img src={edit} alt="Botón" />
-                            <img src={borrar} alt="Botón" />                       
+                            <class className="acciones">
+                            <img src={edit}  alt="Botón" />
+                            <img src={borrar} alt="Botón" />
+                            </class>                       
                         </td>
                     </tr>
                 </tbody>
