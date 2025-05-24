@@ -5,7 +5,9 @@ import AgregarProducto from './pages/AgregarProducto/AgregarProducto'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Login from './pages/Login/Login'
-import TablaProductos from './pages/TablaProductos/TablaProductos'
+import TablaProductos from './components/TablaProductos/TablaProductos'
+import Productos from './components/Productos/Productos'
+import ViewProducts from './pages/ViewProducts/ViewProducts'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +16,7 @@ function App() {
     <>
       <Header/>
       <Navbar/>
-      <TablaProductos/>
+      <ViewProducts/>
       <Footer/>
     </>
   )
