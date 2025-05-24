@@ -1,7 +1,7 @@
 import "./tablaProductos.scss" 
-import producto1 from '../../../public/assets/producto1.jpg';
-import edit from '../../../public/assets/editar.png';
-import borrar from '../../../public/assets/delete.png';
+import producto1 from '/assets/producto1.jpg';
+import edit from '/assets/editar.png';
+import borrar from '/assets/delete.png';
 
 const TablaProductos = ({productos}) => {
     
