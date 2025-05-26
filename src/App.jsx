@@ -5,6 +5,9 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Login from './pages/Login/Login'
 import ViewProducts from './pages/ViewProducts/ViewProducts'
+import Register from './pages/Register/Register'
+import Password from './pages/Password/Password'
+
 
 function App() {
 
@@ -16,6 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/products" element={<ViewProducts/>}/>
+          <Route path="/registro" element={<Register />} />
+          <Route path="/olvide-contraseña" element={<Password />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
