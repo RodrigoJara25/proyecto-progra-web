@@ -1,19 +1,38 @@
 import "./tablaProductos.scss" 
-import producto1 from '/assets/producto1.jpg';
 import edit from '/assets/editar.png';
 import borrar from '/assets/delete.png';
+import { useState, useEffect  } from "react";
+import { Link } from "react-router-dom";
 
 const TablaProductos = ({productos}) => {
-    
+    const [filtroProductos , setFiltroProductos] = useState(productos);
+    const [busqueda, setBusqueda] = useState('');
+    useEffect(() => {
+        setFiltroProductos(productos);
+    }, [productos]);
+
+    const filtrarProductos = () =>{
+        const resultado = productos.filter((producto) => producto.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(busqueda.toLowerCase()));
+        setFiltroProductos(resultado);
+    }
+    useEffect(() => {
+        if(busqueda === ''){
+            setFiltroProductos(productos);
+        }
+        
+    },[busqueda]);
+
     return (
     <div className="container-main">
         <h2>Listado de productos</h2>
         <div className="busqueda">
-            <input type="text" placeholder="Buscar un producto..." />
+            <input type="text" value={busqueda} onChange={(e)=> setBusqueda(e.target.value)} placeholder="Busca un producto..." ></input>
             <div className="botones">
-                <button id="Buscar" className="Buscar">Buscar</button>
-                <button id="Categorias" className="Categorias">Categorias</button>
-                <button id="Agregar" className="Agregar">Agregar producto</button>
+                <button id="Buscar" onClick={()=> filtrarProductos()} className="Buscar">Buscar</button>
+                <button id="Categorias" className="Categorias" >Categorias</button>
+                <Link to="/agregar"> 
+                    <button id="Agregar" className="Agregar">Agregar producto</button>
+                </Link>
             </div>
         </div>
         <div className="lista-producto">
@@ -32,18 +51,22 @@ const TablaProductos = ({productos}) => {
                 </thead>
                 <tbody className="tbody">
                     {
-                        productos.map((producto) => (
+                    filtroProductos.map((producto) => (
                                 <tr className="productos">
-                                    <td><img src= {producto1} alt="producto1" /></td>
+                                    <td><img src={producto.img}
+                                            alt={producto.nombre}/></td>
                                     <td>{producto.id}</td>
                                     <td> {producto.nombre}</td>
                                     <td> {producto.presentacion}</td>
                                     <td> {producto.descripcion}</td>
                                     <td><b>{producto.categoria}</b></td>
                                     <td>{producto.stock}</td>
-                                    <td>
-                                        <img src={edit} className="icono3" alt="Botón" />
-                                        <img src={borrar} className="icono3" alt="Botón" />                       
+                                   <td>
+                                        <div className="acciones-iconos">
+                                            
+                                                <img src={edit} className="icono3" alt="Botón" />
+                                                <img src={borrar} className="icono3" alt="Botón" />                       
+                                        </div>
                                     </td>
                                 </tr>
                         ))

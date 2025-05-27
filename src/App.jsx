@@ -4,9 +4,19 @@ import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Login from './pages/Login/Login'
-import ViewProducts from './pages/ViewProducts/ViewProducts'
+import productoApi from './api/ProductosApi'
+import { useState, useEffect } from 'react'
+import Productos from './components/Productos/Productos'
+import AgregarProducto from './pages/AgregarProducto/AgregarProducto'
 
 function App() {
+  
+  const [lista_productos, setLista_Productos] = useState([]);
+
+  useEffect(() => {
+    const productos = productoApi.obtenerProductos();
+    setLista_Productos(productos);
+  }, []);
 
   return (
     <>
@@ -14,8 +24,9 @@ function App() {
         <Header/>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<Login/>}/>
-          <Route path="/products" element={<ViewProducts/>}/>
+          <Route path="/" element={<Login />} />
+          <Route path="/products" element={<Productos lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
+          <Route path="/agregar" element={<AgregarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
