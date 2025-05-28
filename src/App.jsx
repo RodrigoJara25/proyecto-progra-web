@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
@@ -8,6 +8,8 @@ import productoApi from './api/ProductosApi'
 import { useState, useEffect } from 'react'
 import Productos from './components/Productos/Productos'
 import AgregarProducto from './pages/AgregarProducto/AgregarProducto'
+import EditarProducto from './pages/EditarProducto/EditarProducto'
+import DashboardAdmin from './pages/DashboardAdmin/DashboardAdmin'
 
 function App() {
   
@@ -27,6 +29,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/products" element={<Productos lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/agregar" element={<AgregarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
+          <Route path="/editar/:id" element={<EditarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
+          <Route path="/dashboard" element={<DashboardAdmin/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>

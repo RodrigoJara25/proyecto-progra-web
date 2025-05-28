@@ -62,9 +62,10 @@ const TablaProductos = ({productos}) => {
                                     <td><b>{producto.categoria}</b></td>
                                     <td>{producto.stock}</td>
                                    <td>
-                                        <div className="acciones-iconos">
-                                            
-                                                <img src={edit} className="icono3" alt="Botón" />
+                                        <div className="acciones-iconos">                                                    
+                                                <Link to={`/editar/${producto.id}`}>
+                                                    <img src={edit} className="icono3" alt="Botón" />
+                                                </Link>
                                                 <img src={borrar} className="icono3" alt="Botón" />                       
                                         </div>
                                     </td>

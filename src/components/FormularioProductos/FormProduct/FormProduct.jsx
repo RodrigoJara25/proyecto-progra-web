@@ -57,7 +57,7 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
 
             <div className="group-2">
               <p>Imagen</p>
-              <SubirImagen icono={iconoImg} id="archivo" />
+              <SubirImagen icono={iconoImg} id="archivo" modo = {modo}/>
 
               <div className="stockproducto">
                 <FormGroup label="Stock" htmlFor="stock">
@@ -68,7 +68,7 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                     required
                     min={0}
                     placeholder="Stock"
-                    defaultValue={producto.stock || 0}
+                    defaultValue={producto.stock == null? 0 : producto.stock}
                   />
                 </FormGroup>
                 <button type="submit">
