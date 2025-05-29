@@ -6,13 +6,15 @@ const SubirImagen = ({ icono, id, modo }) => {
   return(
     <>
       {modo === "EditarProducto" ? 
-        <div className="subir-imagen-editar" style={{ backgroundImage: `url(${icono})` }}>
+        <div className="subir-imagen-editar" >
+          <img src={icono} alt="" />
         </div>
       :
       <div className="subir-imagen">
         <img src={icono} alt="Icono" />
-        <p>Arrastra la imagen a esta zona</p>
-        <p>o</p>
+        <span className='estilo-letra'>Arrastra la imagen a esta zona
+          </span>
+        <span className='estilo-letra'>o</span>
         <input type="file" id={id} name={id} />
         <label htmlFor={id} className="btn-file">Seleccionar imagen</label>
       </div>

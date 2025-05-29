@@ -2,7 +2,7 @@ import React from "react";
 import FormGroup from "../FormGroup/FormGroup";
 import "./FormProduct.scss";
 import SubirImagen from "../SubirImagen/SubirImagen";
-
+import agregarImg from "../../../../public/assets/agregar.png"
 
 const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
   return (
@@ -33,16 +33,25 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                   defaultValue={producto.presentacion || ""}
                 />
               </FormGroup>
-              <FormGroup label="Categoría" htmlFor="categoria">
-                <input
-                  type="text"
-                  id="categoria"
-                  name="categoria"
-                  required
-                  placeholder="Seleccione la categoría del producto"
-                  defaultValue={producto.categoria || ""}
-                />
-              </FormGroup>
+              <div className="categorias-estilo">
+                <FormGroup label="Categoría" htmlFor="categoria">
+                  <select
+                    type="text"
+                    id="categoria"
+                    name="categoria"
+                    required
+                    placeholder="Seleccione la categoría del producto"
+                    defaultValue={producto.categoria || ""}>
+                        <option value="" className="texto-categoria">Seleccione la categoria del producto</option>
+                        <option value="frutas">Frutas</option>
+                        <option value="verduras">Verduras</option>
+                        <option value="lacteos">Lácteos</option>
+                    </select>
+                </FormGroup>
+                  <div className="agregarCategoria">
+                      <img src={agregarImg} alt="img3" />
+                  </div>
+                </div>
 
               <FormGroup label="Descripción" htmlFor="descripcion">
                 <input

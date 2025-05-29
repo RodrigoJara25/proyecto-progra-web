@@ -6,19 +6,21 @@ import Footer from './components/Footer/Footer'
 import Login from './pages/Login/Login'
 import productoApi from './api/ProductosApi'
 import { useState, useEffect } from 'react'
-import Productos from './components/Productos/Productos'
 import AgregarProducto from './pages/AgregarProducto/AgregarProducto'
 import EditarProducto from './pages/EditarProducto/EditarProducto'
 import DashboardAdmin from './pages/DashboardAdmin/DashboardAdmin'
+import CarroCompras from './pages/CarroCompras/CarroCompras'
+import TablaProductos from './components/TablaProductos/TablaProductos'
 
 function App() {
   
-  const [lista_productos, setLista_Productos] = useState([]);
+    const [lista_productos, setLista_Productos] = useState(() => {
+      return productoApi.obtenerProductos();
+    });
 
-  useEffect(() => {
-    const productos = productoApi.obtenerProductos();
-    setLista_Productos(productos);
-  }, []);
+    useEffect(() => {
+      productoApi.guardarProductos(lista_productos);
+    }, [lista_productos]);
 
   return (
     <>
@@ -27,10 +29,11 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/products" element={<Productos lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
-          <Route path="/agregar" element={<AgregarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
+          <Route path="/products" element={<TablaProductos productos={lista_productos} setLista_Productos={setLista_Productos} />} />
+          <Route path="/agregar" element={<AgregarProducto lista_prod uctos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/editar/:id" element={<EditarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/dashboard" element={<DashboardAdmin/>} />
+          <Route path="/carrito" element={<CarroCompras lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

@@ -18,7 +18,7 @@ const AgregarProducto = ({ lista_productos, setLista_Productos }) => {
         const form = e.target;
         const nuevoProducto = {
             ...productoObjeto,
-            id: `#${Math.floor(Math.random() * 10000)}`, // Genera un ID aleatorio
+            id: `${Math.floor(Math.random() * 10000)}`, // Genera un ID aleatorio
             nombre: form.nombre.value,
             presentacion: form.presentacion.value,
             descripcion: form.descripcion.value,

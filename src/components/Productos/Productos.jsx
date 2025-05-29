@@ -3,13 +3,10 @@ import { useEffect } from "react";
 import productoApi from "../../api/ProductosApi";
 
 const Productos = ({ lista_productos, setLista_Productos }) => {
-    useEffect(() => {
-        productoApi.guardarProductos(lista_productos);
-    }, [lista_productos]);
 
     return (
         <>
-        <TablaProductos productos={lista_productos} />
+        <TablaProductos productos={lista_productos} setLista_Productos = {setLista_Productos} />
         </>
     );
 };

@@ -2,9 +2,21 @@
     display: flex;
     flex-direction: column; 
     gap: 20px;
-    width: 90%;
+    width: 95%;
     margin-top: 30px;
     padding-left: 5rem;
+    > h2{
+        text-align: start;
+        padding: 0px;
+        margin: 0px;
+        margin-top: 10px;
+    }
+    .container-tabla{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
 }
 .lista-producto{
     border: 1px solid #c6c6c6;
@@ -29,7 +41,10 @@
         background-color: white;
         color: black;
         font-weight: 400;
-    }
+    }.id-style{
+    color: #FE624C;
+    font-weight: 700;
+}
 }
 .tabla-productos tr.productos:hover {
     background-color: #ffffff;
@@ -38,15 +53,11 @@ tr:last-child td {
     border-bottom: none; /* evita doble línea al final */
 }
 
-h1{
-    text-align: start;
-    padding: 0px;
-    margin: 0px;
-}
+
 input{
     border: #9A9A9A 1px solid;
     border-radius: 5px;
-    width: 55rem;
+    width: 100%;
     padding-left: 1rem ;
 }
 input::placeholder {
@@ -57,6 +68,7 @@ input::placeholder {
     flex-direction: row;
     justify-content: start;
     gap: 0.5rem;
+    width: 100%;
 }
 
 .botones{
@@ -65,7 +77,7 @@ input::placeholder {
     justify-content: end;
     align-items: end;
     gap: 1rem;
-    
+    width: 40%;
     & button{
         all: unset;
         background-color: #FE624C;
@@ -77,11 +89,25 @@ input::placeholder {
 
     }& .Agregar{
         width: 16rem;
-
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
     }& .Buscar{
         width: 6.5rem;
+        
     }& .Categorias{
-        width: 8rem;
+        width: 8.5rem;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+        img{
+            height: 10px;
+            width: auto;
+        }
     }
 }
 
@@ -123,12 +149,15 @@ input::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     gap: 0.5rem;
     img {
         width: 20px;
         height: 20px;
         cursor: pointer;
+    }#btn-borrar{
+                height: 24px;
+
     }
 }
 a {
