@@ -11,6 +11,7 @@ const AgregarProducto = ({ lista_productos, setLista_Productos }) => {
         descripcion: "",
         categoria: "",
         stock: 0,
+        img:""
     };
 
     const agregarProducto = (e) => {

@@ -3,6 +3,7 @@ import FormGroup from "../FormGroup/FormGroup";
 import "./FormProduct.scss";
 import SubirImagen from "../SubirImagen/SubirImagen";
 import agregarImg from "../../../../public/assets/agregar.png"
+import { Link } from "react-router-dom";
 
 const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
   return (
@@ -36,11 +37,9 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
               <div className="categorias-estilo">
                 <FormGroup label="Categoría" htmlFor="categoria">
                   <select
-                    type="text"
                     id="categoria"
                     name="categoria"
                     required
-                    placeholder="Seleccione la categoría del producto"
                     defaultValue={producto.categoria || ""}>
                         <option value="" className="texto-categoria">Seleccione la categoria del producto</option>
                         <option value="frutas">Frutas</option>
@@ -48,9 +47,15 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                         <option value="lacteos">Lácteos</option>
                     </select>
                 </FormGroup>
+
+                {modo === "AgregarProducto" ?                  
+                  <Link to="/agregarCategoria">
                   <div className="agregarCategoria">
-                      <img src={agregarImg} alt="img3" />
-                  </div>
+                    <img src={agregarImg} alt="img3" />
+                  </div>  
+                  </Link>
+                  : null
+                }
                 </div>
 
               <FormGroup label="Descripción" htmlFor="descripcion">
@@ -69,7 +74,7 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
               <SubirImagen icono={iconoImg} id="archivo" modo = {modo}/>
 
               <div className="stockproducto">
-                <FormGroup label="Stock" htmlFor="stock">
+                <FormGroup label="Stock" htmlFor="stock" style={{ width: "45%"}}>
                   <input
                     type="number"
                     id="stock"
@@ -81,7 +86,13 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                   />
                 </FormGroup>
                 <button type="submit">
-                  {modo === "EditarProducto" ? "Editar producto" : "Agregar Producto"}
+                    {modo === "EditarProducto" ? (
+                        "Editar producto"
+                      ) : (
+                        <>
+                          <img src={agregarImg}  alt="Agregar" /> Agregar producto
+                        </>
+                    )}
                 </button>
               </div>
             </div>

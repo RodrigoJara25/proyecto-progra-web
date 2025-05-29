@@ -11,6 +11,7 @@ import EditarProducto from './pages/EditarProducto/EditarProducto'
 import DashboardAdmin from './pages/DashboardAdmin/DashboardAdmin'
 import CarroCompras from './pages/CarroCompras/CarroCompras'
 import TablaProductos from './components/TablaProductos/TablaProductos'
+import AgregarCategoria from './pages/AgregarCategoria/AgregarCategoria'
 
 function App() {
   
@@ -30,10 +31,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/products" element={<TablaProductos productos={lista_productos} setLista_Productos={setLista_Productos} />} />
-          <Route path="/agregar" element={<AgregarProducto lista_prod uctos={lista_productos} setLista_Productos={setLista_Productos} />} />
+          <Route path="/agregar" element={<AgregarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/editar/:id" element={<EditarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/dashboard" element={<DashboardAdmin/>} />
           <Route path="/carrito" element={<CarroCompras lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
+          <Route path="/agregarCategoria" element={<AgregarCategoria />}/>
         </Routes>
         <Footer/>
       </BrowserRouter>
