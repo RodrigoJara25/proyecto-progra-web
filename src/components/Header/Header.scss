@@ -12,6 +12,7 @@
         justify-content: center;
         align-items: center;
         div {
+            cursor: pointer;
             .logo {
                 font-family: "Poppins";
                 font-size: 20px;
@@ -82,6 +83,7 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
             .p-user {
                 color: #000000;
                 font-weight: 400;

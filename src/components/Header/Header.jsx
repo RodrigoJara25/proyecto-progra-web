@@ -5,11 +5,13 @@ function Header() {
     return (
         <div className="header">
             <div className="left-header">
-                <div>
-                    <p className="logo">
-                        Mi-Tiendita<span>.</span>
-                    </p>
-                </div>
+                <Link to="/">
+                    <div>
+                        <p className="logo">
+                            Mi-Tiendita<span>.</span>
+                        </p>
+                    </div>
+                </Link>
             </div>
             <div className="search">
                 <input type="text" placeholder="Buscar un producto..."/>
@@ -27,13 +29,15 @@ function Header() {
                         </div>
                     </div>
                 </Link>
-                <div className="user-info">
-                    <img src="/assets/user.png" alt=""  className="icon-user"/>
-                    <div>
-                        <p className="p-user">User</p>
-                        <p className="p-cuenta">cuenta</p>
+                <Link to='/'>
+                    <div className="user-info">
+                        <img src="/assets/user.png" alt=""  className="icon-user"/>
+                        <div>
+                            <p className="p-user">User</p>
+                            <p className="p-cuenta">cuenta</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     )
