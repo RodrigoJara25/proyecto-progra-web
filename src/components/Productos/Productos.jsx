@@ -1,35 +1,14 @@
 import TablaProductos from "../TablaProductos/TablaProductos";
+import { useEffect } from "react";
+import productoApi from "../../api/ProductosApi";
 
-const Productos = () => {
-     const lista_productos = [
-        {
-            id: 1,
-            nombre: "Uvas",
-            presentacion: "0,8kg",
-            descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
-            categoria: "Frutas y verduras",
-            stock: 10,
-        },
-        {
-            id: 2,
-            nombre: "Manzanas",
-            presentacion: "1kg",
-            descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
-            categoria: "Frutas y verduras",
-            stock: 20,
-        },
-        {
-            id: 3,
-            nombre: "Peras",
-            presentacion: "1kg",
-            descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
-            categoria: "Frutas y verduras",
-            stock: 15,
-        }
-    ]  
+const Productos = ({ lista_productos, setLista_Productos }) => {
+
     return (
-        <TablaProductos productos={lista_productos} />
-    )
-}
+        <>
+        <TablaProductos productos={lista_productos} setLista_Productos = {setLista_Productos} />
+        </>
+    );
+};
 
 export default Productos;

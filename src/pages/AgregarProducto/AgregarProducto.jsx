@@ -1,54 +1,39 @@
 import "./agregarProducto.scss"
-import iconoImg from '../../../public/assets/icono-img.png';
+import FormProduct from "../../components/FormularioProductos/FormProduct/FormProduct";
+import iconoImg from "../../../public/assets/icono-img.png"
 
-const AgregarProducto = () => {
-    return(
-        <>
-        <div className="contenedor-main">
-            <div className="agregarProducto">
-                <h1>Agregar producto</h1>
-                <div className="formulario">
-                    <form>
-                        <div className="group-1">
-                                <div className="form-group">
-                                    <label htmlFor="nombre">Nombre del producto</label>
-                                    <input type="text" id="nombre" name="nombre" required placeholder="Nombre del producto"/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="presentacion">Presentación</label>
-                                    <input type="text" id="presentacion" name="presentacion" required placeholder="Presentación"/>
-                                </div>                    
-                                <div className="form-group">
-                                    <label htmlFor="categoria">Categoría</label>
-                                    <input type="text" id="categoria" name="categoria" required placeholder="Seleccione la categoria del producto" />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="descripcion">Descripción</label>
-                                    <input id="descripcion" name="descripcion" required placeholder="Descripcion del producto..."/>
-                                </div>
-                            </div>
-                            <div className="group-2">
-                                <p>Imagen</p>
-                                <div className="subir-imagen">
-                                    <img src={iconoImg} alt="Icono"/>
-                                    <p>Arrastra la imagen a esta zona </p>
-                                    <p>o</p>
-                                    <input type="file" id="archivo"/>
-                                    <label for="archivo" class="btn-file">Seleccionar imagen</label>  
-                                </div>
-                                <div className="stockproducto">
-                                    <div className="form-group">
-                                        <label htmlFor="stock">Stock</label>
-                                        <input type="number" id="stock" name="stock" placeholder="Stock" required min={0} />
-                                    </div>
-                                    <button type="submit">Agregar Producto</button>
-                                </div>
-                            </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        </>
+const AgregarProducto = ({ lista_productos, setLista_Productos }) => {
+    
+    const productoObjeto = {
+        id: "",
+        nombre: "",
+        presentacion: "",
+        descripcion: "",
+        categoria: "",
+        stock: 0,
+        img:""
+    };
+
+    const agregarProducto = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const nuevoProducto = {
+            ...productoObjeto,
+            id: `${Math.floor(Math.random() * 10000)}`, // Genera un ID aleatorio
+            nombre: form.nombre.value,
+            presentacion: form.presentacion.value,
+            descripcion: form.descripcion.value,
+            categoria: form.categoria.value,
+            stock: parseInt(form.stock.value, 10),
+            img: form.archivo.files[0] ? URL.createObjectURL(form.archivo.files[0]) : "", // Crea una URL para la imagen si se selecciona
+        };
+        
+        setLista_Productos([...lista_productos, nuevoProducto]);
+        form.reset();
+    }
+
+    return (
+        <FormProduct onSubmit={agregarProducto} modo ={"AgregarProducto"} iconoImg= {iconoImg}/>
     );
 };
 

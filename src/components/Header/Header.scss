@@ -12,6 +12,7 @@
         justify-content: center;
         align-items: center;
         div {
+            cursor: pointer;
             .logo {
                 font-family: "Poppins";
                 font-size: 20px;
@@ -63,6 +64,7 @@
             border-radius: 8px;
             padding: 5px 20px;
             gap: 10px;
+            cursor: pointer;
             div {
                 .p-carrito {
                     color: #FFFFFF;
@@ -81,6 +83,7 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
             .p-user {
                 color: #000000;
                 font-weight: 400;
