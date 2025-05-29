@@ -65,6 +65,8 @@ h2 {
 .enlaces {
   text-align: center;
   margin-top: 24px; 
+  display: flex;
+  flex-direction: column;
 }
 
 .registro {

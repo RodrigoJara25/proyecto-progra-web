@@ -29,7 +29,7 @@ function Header() {
                         </div>
                     </div>
                 </Link>
-                <Link to='/'>
+                <Link to='/login'>
                     <div className="user-info">
                         <img src="/assets/user.png" alt=""  className="icon-user"/>
                         <div>

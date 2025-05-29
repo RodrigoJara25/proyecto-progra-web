@@ -1,4 +1,5 @@
 import "./Login.scss"
+import {Link} from 'react-router-dom'
 
 function Login() {
 
@@ -6,6 +7,7 @@ function Login() {
         <div className="login">
             <div className="login-card">
                 <h2>Iniciar sesion</h2>
+                
                 
                 <div className="correo">
                     <p>Correo</p>
@@ -20,8 +22,8 @@ function Login() {
                 <button className="bot Iniciar Sesion">Iniciar sesión</button>
                 
                 <div className="enlaces">
-                        <p className="registro">Registrarme</p>
-                        <p className="olvide-contraseña">Olvide mi contraseña</p>
+                        <Link to="/registro" className="registro">Registrame</Link>
+                        <Link to="/olvide-contraseña" className="olvide-contraseña">Olvidé mi contraseña</Link>
                 </div>
            
             </div>

@@ -12,6 +12,10 @@ import DashboardAdmin from './pages/DashboardAdmin/DashboardAdmin'
 import CarroCompras from './pages/CarroCompras/CarroCompras'
 import TablaProductos from './components/TablaProductos/TablaProductos'
 import AgregarCategoria from './pages/AgregarCategoria/AgregarCategoria'
+import ViewProducts from './pages/ViewProducts/ViewProducts'
+import Register from './pages/Register/Register'
+import Password from './pages/Password/Password'
+
 
 function App() {
   
@@ -29,13 +33,17 @@ function App() {
         <Header/>
         <Navbar/>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/products" element={<TablaProductos productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/agregar" element={<AgregarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/editar/:id" element={<EditarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
-          <Route path="/dashboard" element={<DashboardAdmin/>} />
+          <Route path="/" element={<DashboardAdmin/>} />
           <Route path="/carrito" element={<CarroCompras lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
           <Route path="/agregarCategoria" element={<AgregarCategoria />}/>
+          <Route path="/" element={<Login/>}/>
+          <Route path="/products" element={<ViewProducts/>}/>
+          <Route path="/registro" element={<Register />} />
+          <Route path="/olvide-contraseña" element={<Password />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
