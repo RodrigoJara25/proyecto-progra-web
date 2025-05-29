@@ -15,7 +15,9 @@ import AgregarCategoria from './pages/AgregarCategoria/AgregarCategoria'
 import ViewProducts from './pages/ViewProducts/ViewProducts'
 import Register from './pages/Register/Register'
 import Password from './pages/Password/Password'
-
+import DetalleOrd from './pages/DetalleOrd/DetalleOrd'
+import DetalleUs from './pages/DetalleUs/DetalleUs'
+import ListaUs from './pages/ListaUs/ListaUs'
 
 function App() {
   
@@ -44,6 +46,9 @@ function App() {
           <Route path="/products" element={<ViewProducts/>}/>
           <Route path="/registro" element={<Register />} />
           <Route path="/olvide-contraseña" element={<Password />} />
+          <Route path="/detail-order" element={<DetalleOrd />} />
+          <Route path="/detail-user" element={<DetalleUs />} />
+          <Route path="/list-users" element={<ListaUs />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
