@@ -4,7 +4,7 @@ import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Login from './pages/Login/Login'
-import productoApi from './api/ProductosApi'
+import apis from './api/ProductosApi';
 import { useState, useEffect } from 'react'
 import AgregarProducto from './pages/AgregarProducto/AgregarProducto'
 import EditarProducto from './pages/EditarProducto/EditarProducto'
@@ -20,16 +20,19 @@ import DetalleUs from './pages/DetalleUs/DetalleUs'
 import ListaUs from './pages/ListaUs/ListaUs'
 import Inicio from './pages/Inicio/Inicio'
 import DetalleP from './pages/DetalleP/DetalleP'
+import Checkout from './pages/Checkout/Checkout'
+import DetalleProducto from './pages/DetalleProducto/DetalleProducto'
 
 function App() {
   
-    const [lista_productos, setLista_Productos] = useState(() => {
-      return productoApi.obtenerProductos();
-    });
+  const productosApi= apis.productoApi;
+  const [lista_productos, setLista_Productos] = useState(() => {
+    return productosApi.obtenerProductos();
+  });
 
-    useEffect(() => {
-      productoApi.guardarProductos(lista_productos);
-    }, [lista_productos]);
+  useEffect(() => {
+    productosApi.guardarProductos(lista_productos);
+  }, [lista_productos]);
 
   return (
     <>
@@ -42,8 +45,9 @@ function App() {
           <Route path="/products" element={<TablaProductos productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/agregar" element={<AgregarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/editar/:id" element={<EditarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
-          <Route path="/dashboard" element={<DashboardAdmin/>} />
           <Route path="/carrito" element={<CarroCompras lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
+          <Route path="/Detalle-producto-admin/:id" element={<DetalleProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
+          <Route path="/dashboard" element={<DashboardAdmin/>} />
           <Route path="/agregarCategoria" element={<AgregarCategoria />}/>
           <Route path="/products" element={<ViewProducts/>}/>
           <Route path="/registro" element={<Register />} />
@@ -52,6 +56,7 @@ function App() {
           <Route path="/detail-user" element={<DetalleUs />} />
           <Route path="/list-users" element={<ListaUs />} />
           <Route path="/detail-product" element={<DetalleP />} />
+          <Route path="/checkout" element={<Checkout/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

@@ -1,7 +1,12 @@
 import "./DashboardAdmin.scss";
 import BotonesAdmin from "../../components/Botones/BotonesAdmin";
+import apis from '../../api/ProductosApi';
+import DashRegistroUsuarios from "../../components/DashRegistroUsuarios/DashRegistroUsuarios";
+import DashDetalleUsuarios from "../../components/DashDetalleUsuarios/DashDetalleUsuarios";
+import DashListaOrdenes from "../../components/DashListaOrdenes/DashListaOrdenes";
 
 const DashboardAdmin = () => {
+
     return (
         <div className="dashboard-admin">
         <h1>Dashboard</h1>
@@ -26,12 +31,14 @@ const DashboardAdmin = () => {
                         <BotonesAdmin mode="Ver todos los usuarios" />
                     </div>
                     <div className="lista-usuarios">
-
+                        <DashRegistroUsuarios/>
                     </div>
                 </div>
                 <div className="detalleUsuario">
                     <h3>Detalle del usuario</h3>
-                    <div className="perfil-usuario"></div>
+                    <div className="perfil-usuario">
+                        <DashDetalleUsuarios></DashDetalleUsuarios>
+                    </div>
                 </div>
             </div>
             <div className="listado-ordenes">
@@ -43,7 +50,7 @@ const DashboardAdmin = () => {
                         </div>
                 </div>
                 <div className="lista-ordenes">
-            
+                    <DashListaOrdenes/>
                 </div>
             </div>
 

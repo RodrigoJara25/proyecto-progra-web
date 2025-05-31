@@ -9,18 +9,19 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
   return (
     <div className="contenedor-main">
       <div className="agregarProducto">
-        <h1>{modo === "EditarProducto" ? "Editar" : "Agregar producto"}</h1>
+        <h1>{modo === "EditarProducto" ? "Editar" : modo === "AgregarProducto"?"Agregar producto" : "Detalle Producto" }</h1>
         <div className="formulario">
           <form onSubmit={onSubmit}>
             <div className="group-1">
               <FormGroup label="Nombre del producto" htmlFor="nombre">
                 <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  required
-                  placeholder="Nombre del producto"
-                  defaultValue={producto.nombre || ""}
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    required
+                    placeholder="Nombre del producto"
+                    defaultValue={producto.nombre || ""}
+                    readOnly={modo === "Detalle Producto"} 
                 />
               </FormGroup>
 
@@ -32,6 +33,8 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                   required
                   placeholder="Presentación"
                   defaultValue={producto.presentacion || ""}
+                  readOnly={modo === "Detalle Producto"} 
+
                 />
               </FormGroup>
               <div className="categorias-estilo">
@@ -40,11 +43,13 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                     id="categoria"
                     name="categoria"
                     required
-                    defaultValue={producto.categoria || ""}>
-                        <option value="" className="texto-categoria">Seleccione la categoria del producto</option>
-                        <option value="frutas">Frutas</option>
-                        <option value="verduras">Verduras</option>
-                        <option value="lacteos">Lácteos</option>
+                    defaultValue={producto.categoria || ""}                      
+                    disabled={modo === "Detalle Producto"}                    
+                        >    
+                        <option value="" className="texto-categoria" >{modo === "Detalle Producto" || "EditarProducto"? producto.categoria : "Seleccione la categoría del producto" }</option>
+                        <option value="frutas">Frutas y verduras</option>
+                        <option value="verduras">Lacteos y huevos</option>
+                        <option value="lacteos">Carnes, aves y pescados</option>
                     </select>
                 </FormGroup>
 
@@ -65,6 +70,7 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                   required
                   placeholder="Descripción del producto..."
                   defaultValue={producto.descripcion || ""}
+                  readOnly={modo === "Detalle Producto"} 
                 />
               </FormGroup>
             </div>
@@ -83,8 +89,15 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                     min={0}
                     placeholder="Stock"
                     defaultValue={producto.stock == null? 0 : producto.stock}
+                    readOnly={modo === "Detalle Producto"} 
+
                   />
                 </FormGroup>
+                {modo === "Detalle Producto"?
+                <Link to={`/editar/${producto.id}`}> 
+                  <button type="submit"> Editar producto</button>
+                </Link> 
+                :
                 <button type="submit">
                     {modo === "EditarProducto" ? (
                         "Editar producto"
@@ -94,6 +107,8 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                         </>
                     )}
                 </button>
+                }
+                
               </div>
             </div>
           </form>

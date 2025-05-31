@@ -1,4 +1,4 @@
-const lista_inicial = [
+const lista_productos = [
     {
         id: "8123",
         nombre: "Uvas",
@@ -64,28 +64,139 @@ const lista_inicial = [
     }
 ];
 
+const lista_usuarios = [
+    {
+        id: "u001",
+        nombre: "Juan Perez",
+        correo: "juan.perez@gmail.com",
+        fechaRegistro: "20/01/2025",
+        estado: "Activo",
+        img: "./public/assets/user2.png"
+    },
+    {
+        id: "u002",
+        nombre: "Alejandro Ruiz",
+        correo: "alejandro.ruiz@gmail.com",
+        fechaRegistro: "15/01/2025",
+        estado: "Inactivo",
+        img: "./public/assets/user1.png"
+    },
+    {
+        id: "u003",
+        nombre: "María Gonzales",
+        correo: "maria.gonzales@gmail.com",
+        fechaRegistro: "22/01/2025",
+        estado: "Activo",
+        img: "./public/assets/user3.png"
+    },
+    {
+        id: "u004",
+        nombre: "Marco Aurelio",
+        correo: "marco.aurelio@gmail.com",
+        fechaRegistro: "23/01/2025",
+        estado: "Activo",
+        img: "./public/assets/user1.png"
+    },
+    {
+        id: "u005",
+        nombre: "Ana Díaz",
+        correo: "ana.diaz@gmail.com",
+        fechaRegistro: "24/01/2025",
+        estado: "Activo",
+        img: "./public/assets/user3.png"
+    },
+    {
+        id: "u006",
+        nombre: "Carlos Lopez",
+        correo: "carlos.lopez@gmail.com",
+        fechaRegistro: "25/01/2025",
+        estado: "Activo",
+        img: "./public/assets/user2.png"
+    },
+    {
+        id: "u007",
+        nombre: "Laura Mendez",
+        correo: "laura.mendez@gmail.com",
+        fechaRegistro: "26/01/2025",
+        estado: "Activo",
+        img: "./public/assets/user3.png"
+    }
+];
 
-const productoApi = {
-    obtenerProductos: () => {
-    const productosLS = localStorage.getItem("productos");
-    if (productosLS) {
+const lista_ordenes = [
+    {
+        id: "1234",
+        usuarioId: "u002",
+        fecha: "20/01/2025",
+        total: 200.00,
+        estado: "Entregado"
+    },
+    {
+        id: "2356",
+        usuarioId: "u001",
+        fecha: "20/02/2025",
+        total: 190.00,
+        estado: "Entregado"
+    },
+    {
+        id: "4577",
+        usuarioId: "u001",
+        fecha: "20/03/2025",
+        total: 99.00,
+        estado: "Entregado"
+    },
+    {
+        id: "3743",
+        usuarioId: "u001",
+        fecha: "20/03/2025",
+        total: 399.00,
+        estado: "Entregado"
+    },
+    {
+        id: "9001",
+        usuarioId: "u002",
+        fecha: "20/01/2025",
+        total: 69.00,
+        estado: "Entregado"
+    }
+];
+
+const guardarEnLocalStorage = (clave, lista) => {
+    localStorage.setItem(clave, JSON.stringify(lista));
+};
+const obtenerDesdeLocalStorage = (clave, listaInicial) => {
+    const dataLS = localStorage.getItem(clave);
+    if (dataLS) {
         try {
-            const parsed = JSON.parse(productosLS);
-            // Si parsed está vacío, carga lista_inicial
+            const parsed = JSON.parse(dataLS);
             if (parsed.length === 0) {
-                return lista_inicial;
+                return listaInicial;
             }
             return parsed;
         } catch {
-        return lista_inicial;
+        return listaInicial;
         }
     }
-    return lista_inicial;
-    },
-
-    guardarProductos: (productos) => {
-        localStorage.setItem("productos", JSON.stringify(productos));
-    }
+    return listaInicial;
 };
 
-export default productoApi;
+const usuarioApi = {
+    obtenerUsuarios: () => obtenerDesdeLocalStorage("usuarios", lista_usuarios),
+    guardarUsuarios: (usuarios) => guardarEnLocalStorage("usuarios", usuarios)
+};
+
+const ordenApi = {
+    obtenerOrdenes: () => obtenerDesdeLocalStorage("ordenes", lista_ordenes),
+    guardarOrdenes: (ordenes) => guardarEnLocalStorage("ordenes", ordenes)
+};
+
+const productoApi = {
+    obtenerProductos: () => obtenerDesdeLocalStorage("productos", lista_productos ),
+    guardarProductos: (productos) => guardarEnLocalStorage("productos", productos)
+}
+
+export default {
+  productoApi,
+  usuarioApi,
+  ordenApi
+};
