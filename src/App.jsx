@@ -15,6 +15,7 @@ import AgregarCategoria from './pages/AgregarCategoria/AgregarCategoria'
 import ViewProducts from './pages/ViewProducts/ViewProducts'
 import Register from './pages/Register/Register'
 import Password from './pages/Password/Password'
+import PaginaPrincipal from './pages/PaginaPrincipal/PaginaPrincipal'
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/products" element={<ViewProducts/>}/>
           <Route path="/registro" element={<Register />} />
           <Route path="/olvide-contraseña" element={<Password />} />
+          <Route path="/pagina-principal" element={<PaginaPrincipal />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
