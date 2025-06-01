@@ -64,6 +64,16 @@ const lista_inicial = [
     }
 ];
 
+const lista_categorias = [
+    { id: "1", nombre: "Frutas y verduras", descripcion: "Productos frescos como frutas y vegetales." },
+    { id: "2", nombre: "Lacteos y huevos", descripcion: "Productos derivados de la leche y huevos." },
+    { id: "3", nombre: "Carnes, aves y pescados", descripcion: "Carnes frescas, aves y pescados." },
+    { id: "4", nombre: "Abarrotes", descripcion: "Productos básicos y alimentos no perecibles." },
+    { id: "5", nombre: "Panaderia", descripcion: "Pan, pasteles y productos horneados." },
+    { id: "6", nombre: "Congelados", descripcion: "Alimentos congelados y listos para cocinar." },
+    { id: "7", nombre: "Juguetes", descripcion: "Juguetes y productos para niños." },
+    { id: "8", nombre: "Ropa", descripcion: "Prendas de vestir y accesorios." }
+];
 
 const productoApi = {
     obtenerProductos: () => {
@@ -85,6 +95,10 @@ const productoApi = {
 
     guardarProductos: (productos) => {
         localStorage.setItem("productos", JSON.stringify(productos));
+    },
+
+    obtenerCategorias: () => {
+        return lista_categorias;
     }
 };
 

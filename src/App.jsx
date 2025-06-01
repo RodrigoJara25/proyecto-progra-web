@@ -27,12 +27,17 @@ import EditarExperiencia from './components/EditarExperiencia/EditarExperiencia'
 import MantenimientoComercios from './components/MantenimientoComercios/MantenimientoComercios'
 import AgregarComercio from './components/AgregarComercio/AgregarComercio'
 import EditarComercio from './components/EditarComercio/EditarComercio'
+import ListaCategorias from './pages/ListaCategorias/ListaCategorias'
 
 function App() {
   
     const [lista_productos, setLista_Productos] = useState(() => {
       return productoApi.obtenerProductos();
     });
+
+    const [lista_categorias, setListaCategorias] = useState(() => {
+      return productoApi.obtenerCategorias();
+    })
 
     useEffect(() => {
       productoApi.guardarProductos(lista_productos);
@@ -51,7 +56,7 @@ function App() {
           <Route path="/editar/:id" element={<EditarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
           <Route path="/dashboard" element={<DashboardAdmin/>} />
           <Route path="/carrito" element={<CarroCompras lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
-          <Route path="/agregarCategoria" element={<AgregarCategoria />}/>
+          <Route path="/agregar-categoria" element={<AgregarCategoria categorias={lista_categorias} setCategorias={setListaCategorias}/>}/>
           <Route path="/products" element={<ViewProducts/>}/>
           <Route path="/registro" element={<Register />} />
           <Route path="/olvide-contraseña" element={<Password />} />
@@ -66,6 +71,7 @@ function App() {
           <Route path="/mant-comercios" element={<MantenimientoComercios />} />
           <Route path="/agregar-comercio" element={<AgregarComercio />} />
           <Route path="/editar-comercio/:id" element={<EditarComercio />} />
+          <Route path="/lista-categorias" element={<ListaCategorias categorias={lista_categorias} setCategorias={setListaCategorias}/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>
