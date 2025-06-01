@@ -24,6 +24,9 @@ import Experiencias from './pages/Experiencias/Experiencias'
 import MantenimientoExperiencias from './components/MantenimientoExperiencias/MantenimientoExperiencias'
 import AgregarExperiencia from './components/AgregarExperiencia/AgregarExperiencia'
 import EditarExperiencia from './components/EditarExperiencia/EditarExperiencia'
+import MantenimientoComercios from './components/MantenimientoComercios/MantenimientoComercios'
+import AgregarComercio from './components/AgregarComercio/AgregarComercio'
+import EditarComercio from './components/EditarComercio/EditarComercio'
 
 function App() {
   
@@ -60,6 +63,9 @@ function App() {
           <Route path="/mant-experiencias" element={<MantenimientoExperiencias />} />
           <Route path="/agregar-experiencia" element={<AgregarExperiencia />} />
           <Route path="/editar-experiencia/:id" element={<EditarExperiencia />} />
+          <Route path="/mant-comercios" element={<MantenimientoComercios />} />
+          <Route path="/agregar-comercio" element={<AgregarComercio />} />
+          <Route path="/editar-comercio/:id" element={<EditarComercio />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

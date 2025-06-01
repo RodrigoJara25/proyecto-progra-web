@@ -127,10 +127,10 @@ function EditarExperiencia() {
     }, [id, experiencias]);
 
     return (
-        <div className="agregar-experiencia">
+        <div className="editar-experiencia">
             <h2>Editar Experiencia</h2>
-            <div className="agregar-experiencia-container">
-                <form className="agregar-experiencia-form" onSubmit={handleSubmit}>
+            <div className="editar-experiencia-container">
+                <form className="editar-experiencia-form" onSubmit={handleSubmit}>
                     <div className="form-info">
                         <div className="form-group">
                             <label htmlFor="nombre">Nombre de la experiencia:</label>

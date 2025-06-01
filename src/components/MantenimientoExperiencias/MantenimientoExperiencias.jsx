@@ -9,7 +9,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Cena para 2 en La Bisteca",
             comercio: "La Bisteca",
             costo: 100,
-            fecha_expiracion: "2025-12-05",
+            fecha_expiracion: "05/12/2025",
             usado: false,
             imagen: null,
         },
@@ -18,7 +18,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Clase de cocina en Casa Gourmet",
             comercio: "Casa Gourmet",
             costo: 50,
-            fecha_expiracion: "2025-01-15",
+            fecha_expiracion: "15/01/2025",
             usado: false,
             imagen: null,
         },
@@ -27,7 +27,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Tour de vinos en Bodega del Valle",
             comercio: "Bodega del Valle",
             costo: 75,
-            fecha_expiracion: "2025-03-20",
+            fecha_expiracion: "20/03/2025",
             usado: true,
             imagen: null,
         },
@@ -36,7 +36,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Masaje relajante en Spa Relax",
             comercio: "Spa Relax",
             costo: 60,
-            fecha_expiracion: "2025-02-10",
+            fecha_expiracion: "10/02/2025",
             usado: false,
             imagen: null,
         },
@@ -45,7 +45,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Entrada VIP a concierto de Rock",
             comercio: "Conciertos Rock",
             costo: 120,
-            fecha_expiracion: "2025-04-30",
+            fecha_expiracion: "30/04/2025",
             usado: true,
             imagen: null,
         },
@@ -54,7 +54,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Clase de yoga al aire libre",
             comercio: "Yoga Zen",
             costo: 30,
-            fecha_expiracion: "2025-05-25",
+            fecha_expiracion: "25/05/2025",
             usado: false,
             imagen: null,
         },
@@ -63,7 +63,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Excursión a la montaña con guía",
             comercio: "Aventura Montañosa",
             costo: 80,
-            fecha_expiracion: "2025-06-18",
+            fecha_expiracion: "18/06/2025",
             usado: false,
             imagen: null,
         },
@@ -72,7 +72,7 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Noche de cine en casa con palomitas",
             comercio: "Cine en Casa",
             costo: 20,
-            fecha_expiracion: "2025-07-01",
+            fecha_expiracion: "01/07/2025",
             usado: true,
             imagen: null,
         },
@@ -88,16 +88,18 @@ function MantenimientoExperiencias({ }) {
                 <h2>Listado de experiencias</h2>
                 <div className="experiencias-agregar">
                     <div className="search">
-                        <input type="text" placeholder="Buscar un producto..."/>
+                        <input type="text" placeholder="Buscar una experiencia..."/>
                         <div className="search-icon">
                             <img src="/assets/Vector.png" alt="" />
                         </div>
                     </div>
                     <div>
                         <button>Buscar</button>
-                        <button>Comercios</button>
+                        <Link className="link-btn" to="/mant-comercios">
+                            <button className="btn-exp">Comercios</button>
+                        </Link>
                         <Link className="link-btn-agregar" to="/agregar-experiencia">
-                            <button className="btn-agregar-exp">Agregar experiencia</button>
+                            <button className="btn-exp">Agregar experiencia</button>
                         </Link>
                     </div> 
                 </div>
