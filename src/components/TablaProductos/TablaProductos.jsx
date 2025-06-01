@@ -62,8 +62,12 @@ const TablaProductos = ({productos, setLista_Productos}) => {
                     {
                     filtroProductos.map((producto) => (
                         <tr className="productos">
-                            <td><img src={producto.img}
-                                    alt={producto.nombre}/></td>
+                            <td>
+                                <Link to={`/detalle-producto-admin/${producto.id}`}>
+                                    <img src={producto.img}
+                                        alt={producto.nombre}/>
+                                </Link>
+                            </td>
                             <td><span className="id-style">#{producto.id}</span></td>
                             <td> {producto.nombre}</td>
                             <td> {producto.presentacion}</td>

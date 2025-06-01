@@ -5,7 +5,7 @@ const SubirImagen = ({ icono, id, modo }) => {
   console.log("Modo:", modo);
   return(
     <>
-      {modo === "EditarProducto" ? 
+      {modo === "EditarProducto" ||modo === "Detalle Producto"  ? 
         <div className="subir-imagen-editar" >
           <img src={icono} alt="" />
         </div>

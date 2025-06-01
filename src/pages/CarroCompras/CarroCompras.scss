@@ -2,13 +2,19 @@
 .carro-compras{
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
     gap: 2rem;
     width: 100%;
     height: auto;
     margin-top: 50px;
     margin-bottom: 50px;
+    img{
+        width: auto;
+        height: 95px;
+    }
+    h1{
+        margin: 0;
+    }
     .carro{
         display: flex;
         flex-direction: column;
@@ -18,112 +24,9 @@
             flex-direction: row;
             gap: 5px;
             align-items: center;
+            margin-bottom: 20px;
         }
-        .productos-carrito{
-            border: 1px solid #D5D5D5;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            padding: 30px;
-            .descripcion-compra{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
-                border-top: 1px solid #D5D5D5 ;
-                border-bottom: 1px solid #D5D5D5 ;
-                .boton-check{
-                    background-color: #6B6B6B;
-                    color: white;
-                    font-size: auto;
-                    border: none;
-                    padding: 10px;
-                    border-radius: 5px;
-                    width: 25px;
-                    height: auto;
-                }
-            }.nombre-producto{
-                display: flex;
-                flex-direction: column;
-                margin-right: 10rem;
-                .presentacion{
-                    color: #686868;
-                }.estilo-llegada{
-                    color: #FE624C;
-                    font-weight: 700;
-                }
-            }.precio{
-                display: flex;
-                flex-direction: column;
-                align-items: end;
-                .aumentar-cantidad{
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    justify-content: center;
-                    .cantidad{
-                        color: #626262;
-                    }
-                    .operacion{
-                        width: 30px;
-                        height: auto;
-                    }>p{
-                        text-align: center;
-                        border: 1px solid #D5D5D5;
-                        border-radius: 5px;
-                        padding-right: 18px;
-                        padding-left: 18px;
-                        padding-top: 0px;
-
-                    }.eliminar{
-                        height: 25px;
-                        width: auto;
-                        margin-left: 50px;
-                        cursor: pointer;
-                    }
-                }
-            }
-
-        }
-    }
-    .resumen-compra{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        .left{
-            width: 260px;
-        }
-        .titulo-resumen{
-            font-size: 20px;
-            font-weight: 700;
-        }
-        .contenedor-compra{
-            border: 1px solid #D5D5D5;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            padding: 30px;
-            gap: 10px;
-            .precio{
-                display: flex;
-                flex-direction: row;
-                .oferta{
-                    color: #3AA423;
-                    font-weight: 700;
-                }.cantidad-descuento{
-                    color: #FC0000;
-                }
-            }.total{
-                display: flex;
-                flex-direction: row;
-                border-top: 1px solid black;
-                padding-top: 10px;
-            }
-        }.continuar-compra{
-            width: 100%;
-        }
+       
     }
 }
 

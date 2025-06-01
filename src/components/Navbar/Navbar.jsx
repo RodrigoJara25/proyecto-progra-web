@@ -17,6 +17,9 @@ function Navbar() {
                     <li>
                         <Link to="#" className="navbar-link">Nosotros</Link>
                     </li>
+                    <li>
+                        <Link to="/dashboard" className="navbar-link">Dashboard</Link>
+                    </li>
                 </ul>
             </div>
             <div className="navbar-right">
