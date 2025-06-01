@@ -22,6 +22,11 @@ import Inicio from './pages/Inicio/Inicio'
 import DetalleP from './pages/DetalleP/DetalleP'
 import Checkout from './pages/Checkout/Checkout'
 import DetalleProducto from './pages/DetalleProducto/DetalleProducto'
+import MetodoPago from './pages/MetodoPago/MetodoPago'
+import PagoQR from './pages/PagoQR/PagoQR'
+import SelectorMetodoPago from './components/SelectorMetodoPago/SelectorMetodoPago'
+import PagoTarjeta from './pages/PagoTarjeta/PagoTarjeta'
+import OrdenCompletada from './pages/OrdenCompletada/OrdenCompletada'
 
 function App() {
   
@@ -57,6 +62,12 @@ function App() {
           <Route path="/list-users" element={<ListaUs />} />
           <Route path="/detail-product" element={<DetalleP />} />
           <Route path="/checkout" element={<Checkout/>}/>
+          <Route path="/metodoPago" element={<MetodoPago />}>
+            <Route index element={<SelectorMetodoPago />} />
+            <Route path="qr" element={<PagoQR />} />
+            <Route path="tarjeta" element={<PagoTarjeta />} />
+          </Route>
+          <Route path="/OrdenCompletada" element={<OrdenCompletada/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

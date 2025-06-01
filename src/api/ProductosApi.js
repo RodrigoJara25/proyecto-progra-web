@@ -5,7 +5,8 @@ const lista_productos = [
         presentacion: "0,8kg",
         descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
         categoria: "Frutas y verduras",
-        stock: 10,  
+        stock: 10,
+        precio: 6.90,
         img: "./public/assets/uvas.png"
     },
     {
@@ -15,6 +16,7 @@ const lista_productos = [
         descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
         categoria: "Frutas y verduras",
         stock: 23,
+        precio: 4.50,
         img: "./public/assets/peras.png"
     },
     {
@@ -24,6 +26,7 @@ const lista_productos = [
         descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
         categoria: "Frutas y verduras",
         stock: 21,
+        precio: 2.90,
         img: "./public/assets/manzanas.png"
     },
     {
@@ -33,6 +36,7 @@ const lista_productos = [
         descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
         categoria: "Frutas y verduras",
         stock: 10,
+        precio: 3.20,
         img: "./public/assets/Sandía.png"
     },
     {
@@ -42,6 +46,7 @@ const lista_productos = [
         descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
         categoria: "Lacteos y huevos",
         stock: 30,
+        precio: 12.90,
         img: "./public/assets/leche_gloria.png"
     },
     {
@@ -51,6 +56,7 @@ const lista_productos = [
         descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
         categoria: "Carnes, aves y pescados",
         stock: 3,
+        precio: 21.50,
         img: "./public/assets/Pollo.png"
     },
     {
@@ -60,9 +66,11 @@ const lista_productos = [
         descripcion: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident aperiam obcaecati tempore iure, iste odio maxime repellendus earum eius? Repellat molestias totam earum, corporis cumque corrupti praesentium sit maxime neque?",
         categoria: "Frutas y verduras",
         stock: 15,
+        precio: 4.80,
         img: "./public/assets/papaya.png"
     }
 ];
+
 
 const lista_usuarios = [
     {

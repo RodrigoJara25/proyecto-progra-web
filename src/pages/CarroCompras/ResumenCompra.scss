@@ -16,8 +16,13 @@
             border-radius: 10px;
             display: flex;
             flex-direction: column;
-            padding: 30px;
-            gap: 10px;
+            .precios-contenedor{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin: 30px;
+                width: 330px;
+            }
             .precio{
                 display: flex;
                 flex-direction: row;

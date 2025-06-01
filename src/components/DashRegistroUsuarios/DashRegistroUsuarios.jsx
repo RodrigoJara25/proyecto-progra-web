@@ -1,6 +1,5 @@
 import "./DashRegistroUsuarios.scss"
 import api from "../../api/ProductosApi";
-import imggg from "../../../public/assets/user1.png"
 import { useEffect, useState } from "react";
 
 const DashRegistroUsuarios = () =>{
@@ -28,7 +27,7 @@ const DashRegistroUsuarios = () =>{
             <tbody>
                 {
                 lista_usuarios.map((usuario)=>(
-                    <tr>
+                    <tr >
                         <td className="nombre2"> 
                             <img src={usuario.img} alt={usuario.nombre} /> {usuario.nombre}
                         </td>

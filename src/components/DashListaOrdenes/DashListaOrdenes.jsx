@@ -16,7 +16,7 @@ const DashListaOrdenes = () => {
                     <tr>
                         <th>#ID</th>
                         <th>Usuario</th>
-                        <th>Fecha de órden</th>
+                        <th>Fecha de orden</th>
                         <th>Total</th>
                         <th>Estado</th>
                     </tr>
