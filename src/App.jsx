@@ -20,6 +20,9 @@ import DetalleUs from './pages/DetalleUs/DetalleUs'
 import ListaUs from './pages/ListaUs/ListaUs'
 import Inicio from './pages/Inicio/Inicio'
 import DetalleP from './pages/DetalleP/DetalleP'
+import Experiencias from './pages/Experiencias/Experiencias'
+import MantenimientoExperiencias from './components/MantenimientoExperiencias/MantenimientoExperiencias'
+import AgregarExperiencia from './components/AgregarExperiencia/AgregarExperiencia'
 
 function App() {
   
@@ -52,6 +55,9 @@ function App() {
           <Route path="/detail-user" element={<DetalleUs />} />
           <Route path="/list-users" element={<ListaUs />} />
           <Route path="/detail-product" element={<DetalleP />} />
+          <Route path="/experiencias" element={<Experiencias />} />
+          <Route path="/mant-experiencias" element={<MantenimientoExperiencias />} />
+          <Route path="/agregar-experiencia" element={<AgregarExperiencia />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
