@@ -7,7 +7,7 @@ function Navbar() {
             <div className="navbar-left">
                 <ul>
                     <li>
-                        <Link to="#" className="navbar-link">
+                        <Link to="/lista-categorias" className="navbar-link">
                             <img src="/assets/hamburguer.png" alt="" />Categorias
                         </Link>
                     </li>
