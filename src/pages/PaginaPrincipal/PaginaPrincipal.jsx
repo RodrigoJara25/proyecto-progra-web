@@ -27,14 +27,14 @@ function PaginaPrincipal() {
     };
 
     
-    const [paginaActual, setPaginaActual] = useState(1);
+    const [paginaActual,setPaginaActual] = useState(1);
     const ordenesPorPagina = 5;
 
-    const indexInicio = (paginaActual - 1) * ordenesPorPagina;
-    const indexFin = indexInicio + ordenesPorPagina;
-    const ordenesPagina = ordenes.slice(indexInicio, indexFin);
+    const indiceInicio = (paginaActual-1) * ordenesPorPagina;
+    const indiceFin = indiceInicio + ordenesPorPagina;
+    const ordenesPagina = ordenes.slice(indiceInicio,indiceFin);
 
-    const totalPaginas = Math.ceil(ordenes.length / ordenesPorPagina);
+    const totalPaginas = Math.ceil(ordenes.length/ordenesPorPagina);  
 
     const cambiarPagina = (nuevaPagina) => {
         if (nuevaPagina >= 1 && nuevaPagina <= totalPaginas) {
@@ -44,13 +44,13 @@ function PaginaPrincipal() {
 
     return (
         <div className="pagina-principal">
-            <h2 className="welcome-text">Hola {datospersonales.nombre}!</h2>
+            <h2 className="texto-bienvenida">Hola {datospersonales.nombre}!</h2>
 
-            <div className="user-info-section">
-                <div className="left-section">
+            <div className="seccion-info-usuarios">
+                <div className="seccion-izquierda">
                     <div className="info-card datos-personales">
                         <h3>Datos personales</h3>
-                        <div className="info-content">
+                        <div className="info-contenido">
                             <p><span>Nombre:</span> {datospersonales.nombre}</p>
                             <p><span>Correo:</span> {datospersonales.correo}</p>
                             <p><span>Fecha de registro:</span>{datospersonales.fecha_registro}</p>
@@ -59,34 +59,34 @@ function PaginaPrincipal() {
 
                     <div className="info-card direccion-envio">
                         <h3>Dirección de envío</h3>
-                        <div className="info-content">
+                        <div className="info-contenido">
                             <p>{direnvio.direccion}</p>
                             <p>Telefono de contacto: {direnvio.telefonocontacto}</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="right-section">
+                <div className="seccion-derecha">
                     <div className="stats-container">
                         <div className="stat-card ordenes">
-                            <span className="stat-value">{ordenes.length}</span>
-                            <span className="stat-label">Órdenes</span>
+                            <span className="valor">{ordenes.length}</span>
+                            <span className="texto">Órdenes</span>
                         </div>
                         <div className="stat-card monto">
-                            <span className="stat-value">S/129</span>
-                            <span className="stat-label">Monto ahorrado</span>
+                            <span className="valor">S/129</span>
+                            <span className="texto">Monto ahorrado</span>
                         </div>
                     </div>
 
                     <div className="imagen-usuario">
-                        <img src="/assets/image 37.png" alt="User" />
+                        <img src="/assets/image 37.png" alt="User"/>
                     </div>
                 </div>
             </div>
 
-            <div className="orders-section">
+            <div className="seccion-ordenes">
                 <h3>Tus órdenes</h3>
-                <div className="search-orders">
+                <div className="buscar-orden">
                     <input type="text" placeholder="Buscar una orden..." />
                     <button>Buscar</button>
                 </div>
@@ -94,7 +94,7 @@ function PaginaPrincipal() {
                     <table>
                         <thead>
                             <tr>
-                                <th>ORDEN</th>
+                                <th>Orden</th>
                                 <th>Usuario</th>
                                 <th>Fecha de orden</th>
                                 <th>Total</th>
@@ -103,14 +103,14 @@ function PaginaPrincipal() {
                             </tr>
                         </thead>
                         <tbody>
-                            {ordenesPagina.map((orden, index) => (
-                                <tr key={index}>
+                            {ordenesPagina.map((orden) => (
+                                <tr key={orden.id}>
                                     <td className="orden-id">{orden.id}</td>
                                     <td>{orden.usuario}</td>
                                     <td>{orden.fecha}</td>
                                     <td>{orden.total}</td>
                                     <td>
-                                        <span className={`estado ${orden.estado.toLowerCase().replace(' ', '-')}`}>
+                                        <span>
                                             {orden.estado}
                                         </span>
                                     </td>

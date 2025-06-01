@@ -3,20 +3,20 @@
   max-width: 1200px;
   margin: 0 auto;
 
-  .welcome-text {
+  .texto-bienvenida {
     font-size: 24px;
     margin-bottom: 20px;
     font-weight: bold;
     text-align: left;
   }
 
-  .user-info-section {
+  .seccion-info-usuarios {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
 
-    .left-section {
+    .seccion-izquierda {
       flex: 2;
       display: flex;
       gap: 20px;
@@ -34,7 +34,7 @@
           font-size: 16px;
         }
 
-        .info-content {
+        .info-contenido {
           p {
             margin: 8px 0;
             color: #444;
@@ -49,7 +49,7 @@
       }
     }
 
-    .right-section {
+    .seccion-derecha {
         flex: 1;
         display: flex;
         flex-direction: row; 
@@ -72,11 +72,11 @@
             justify-content: space-between;
             align-items: center;
       
-            .stat-label {
+            .texto {
               font-size: 14px;
             }
       
-            .stat-value {
+            .valor {
               font-size: 20px;
               font-weight: bold;
             }
@@ -99,7 +99,7 @@
       }
   }
 
-    .orders-section {
+    .seccion-ordenes {
         background: white;
         border-radius: 8px;
         padding: 20px;
@@ -110,7 +110,7 @@
             font-size: 20px;
         }
 
-        .search-orders {
+        .buscar-orden {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
@@ -157,25 +157,9 @@
                         font-weight: 600;
                     }
                 }
+         
 
-                .estado {
-                    display: inline-block;
-                    padding: 4px 8px;
-                    border-radius: 4px;
-                    font-size: 14px;
-
-                    &.entregado {
-                        background-color: #e8f5e9;
-                        color: #2e7d32;
-                    }
-
-                    &.por-entregar {
-                        background-color: #fff3e0;
-                        color: #ef6c00;
-                    }
-                }
-
-                .ver-detalles {
+              .ver-detalles {
                     padding: 6px 12px;
                     background-color: #ff4b4b;
                     color: white;
