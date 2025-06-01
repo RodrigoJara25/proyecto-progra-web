@@ -20,7 +20,9 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-right">
-                OFERTAS 👋
+                <Link to="/experiencias">
+                    OFERTAS 👋
+                </Link>
             </div>
         </div>
     )

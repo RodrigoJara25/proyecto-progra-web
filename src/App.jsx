@@ -28,6 +28,8 @@ import MantenimientoComercios from './components/MantenimientoComercios/Mantenim
 import AgregarComercio from './components/AgregarComercio/AgregarComercio'
 import EditarComercio from './components/EditarComercio/EditarComercio'
 import ListaCategorias from './pages/ListaCategorias/ListaCategorias'
+import PaginaPrincipal from './pages/PaginaPrincipal/PaginaPrincipal'
+
 
 function App() {
   
@@ -72,6 +74,7 @@ function App() {
           <Route path="/agregar-comercio" element={<AgregarComercio />} />
           <Route path="/editar-comercio/:id" element={<EditarComercio />} />
           <Route path="/lista-categorias" element={<ListaCategorias categorias={lista_categorias} setCategorias={setListaCategorias}/>} />
+          <Route path="/pagina-principal" element={<PaginaPrincipal />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
