@@ -109,11 +109,7 @@ function PaginaPrincipal() {
                                     <td>{orden.usuario}</td>
                                     <td>{orden.fecha}</td>
                                     <td>{orden.total}</td>
-                                    <td>
-                                        <span>
-                                            {orden.estado}
-                                        </span>
-                                    </td>
+                                    <td>{orden.estado}</td>
                                     <td>
                                         <button className="ver-detalles">Ver detalles</button>
                                     </td>
