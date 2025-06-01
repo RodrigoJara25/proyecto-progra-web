@@ -12,7 +12,7 @@ function Register() {
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
 
-  const handleRegister = () => {
+  const logicaregistro = () => {
     const nombre = nombreRef.current.value.trim();
     const apellido = apellidoRef.current.value.trim();
     const correo = correoRef.current.value.trim();
@@ -65,7 +65,7 @@ function Register() {
           </div>
         </div>
 
-        <button className='boton-registrar' onClick={handleRegister}>Registrarme</button>
+        <button className='boton-registrar' onClick={logicaregistro}>Registrarme</button>
       </div>
     </div>
   );

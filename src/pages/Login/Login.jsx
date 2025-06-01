@@ -7,7 +7,7 @@ function Login() {
   const correoRef = useRef();
   const passwordRef = useRef();
 
-  const handleLogin = () => {
+  const logicalogin = () => {
     const correo = correoRef.current.value.trim();
     const password = passwordRef.current.value.trim();
 
@@ -45,7 +45,7 @@ function Login() {
           />
         </div>
 
-        <button className="bot Iniciar Sesion" onClick={handleLogin}>
+        <button className="bot Iniciar Sesion" onClick={logicalogin}>
           Iniciar sesión
         </button>
 

@@ -83,7 +83,7 @@
           }
         }
       
-        .user-image {
+        .imagen-usuario {
           width: 100px;
           height: 100px;
           border-radius: 50%;
@@ -132,7 +132,7 @@
             }
         }
 
-        .orders-table {
+        .tabla-ordenes {
             overflow-x: auto;
 
             table {
@@ -186,45 +186,32 @@
                 }
             }
         }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            gap: 10px;
-
-            .pagination-arrow {
-                padding: 8px 12px;
-                border: 1px solid #ddd;
-                background: white;
-                border-radius: 4px;
-                cursor: pointer;
-
-                &:disabled {
-                    opacity: 0.5;
-                    cursor: not-allowed;
-                }
-            }
-
-            .pagination-numbers {
-                display: flex;
-                gap: 5px;
-
-                span {
-                    padding: 8px 12px;
-                    border: 1px solid #ddd;
-                    border-radius: 4px;
-                    cursor: pointer;
-
-                    &.active {
-                        background-color: #ff4b4b;
-                        color: white;
-                        border-color: #ff4b4b;
-                    }
-                }
-            }
-        }
     }
+    .paginacion {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    
+      button {
+        padding: 6px 12px;
+        border: none;
+        background-color: #ff4b4b;
+        cursor: pointer;
+        border-radius: 5px;
+    
+        &.activo {
+          background-color: #ff4b4b;
+          color: white;
+          font-weight: bold;
+        }
+    
+        &:disabled {
+          background-color: #ff4b4b;
+          cursor: not-allowed;
+        }
+      }
+    }
+    
 }
 

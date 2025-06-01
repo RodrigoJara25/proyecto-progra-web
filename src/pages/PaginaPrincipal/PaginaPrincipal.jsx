@@ -2,8 +2,7 @@ import { useState } from 'react';
 import './PaginaPrincipal.scss';
 
 function PaginaPrincipal() {
-
-    const ordenesEjemplo = [
+    const ordenes = [
         { id: '#7231', usuario: 'Juan Perez', fecha: '20/01/2025', total: '$199.00', estado: 'Entregado' },
         { id: '#7232', usuario: 'María González', fecha: '20/01/2025', total: '$200.00', estado: 'Por entregar' },
         { id: '#7233', usuario: 'Marco Aurelio', fecha: '21/01/2025', total: '$199.00', estado: 'Entregado' },
@@ -16,38 +15,53 @@ function PaginaPrincipal() {
         { id: '#7240', usuario: 'Martín González', fecha: '23/01/2025', total: '$197.00', estado: 'Por entregar' }
     ];
 
-    
-    const usuarioEjemplo = {
-        nombre: 'Andrew',
-        apellido: 'Huancaya',
+    const datospersonales = {
+        nombre: 'Andrew Huancaya',
         correo: 'andrewhuancaya@gmail.com',
-        fecha_registro:'31/01/2025'
+        fecha_registro: '31/01/2025'
     };
 
-   
+    const direnvio = {
+        direccion: 'Av. La Molina 123',
+        telefonocontacto: '991264864'
+    };
+
+    
+    const [paginaActual, setPaginaActual] = useState(1);
+    const ordenesPorPagina = 5;
+
+    const indexInicio = (paginaActual - 1) * ordenesPorPagina;
+    const indexFin = indexInicio + ordenesPorPagina;
+    const ordenesPagina = ordenes.slice(indexInicio, indexFin);
+
+    const totalPaginas = Math.ceil(ordenes.length / ordenesPorPagina);
+
+    const cambiarPagina = (nuevaPagina) => {
+        if (nuevaPagina >= 1 && nuevaPagina <= totalPaginas) {
+            setPaginaActual(nuevaPagina);
+        }
+    };
 
     return (
         <div className="pagina-principal">
-            
+            <h2 className="welcome-text">Hola {datospersonales.nombre}!</h2>
 
-            <h2 className="welcome-text">Hola {usuarioEjemplo.nombre}!</h2>
-            
             <div className="user-info-section">
                 <div className="left-section">
                     <div className="info-card datos-personales">
                         <h3>Datos personales</h3>
                         <div className="info-content">
-                            <p><span>Nombre:</span> {usuarioEjemplo.nombre}</p>
-                            <p><span>Correo:</span> {usuarioEjemplo.correo}</p>
-                            <p><span>Fecha de registro:</span>{usuarioEjemplo.fecha_registro}</p>
+                            <p><span>Nombre:</span> {datospersonales.nombre}</p>
+                            <p><span>Correo:</span> {datospersonales.correo}</p>
+                            <p><span>Fecha de registro:</span>{datospersonales.fecha_registro}</p>
                         </div>
                     </div>
 
                     <div className="info-card direccion-envio">
                         <h3>Dirección de envío</h3>
                         <div className="info-content">
-                            <p>Av. La molina 12334</p>
-                            <p>Cálculo de contacto: 990892131</p>
+                            <p>{direnvio.direccion}</p>
+                            <p>Telefono de contacto: {direnvio.telefonocontacto}</p>
                         </div>
                     </div>
                 </div>
@@ -55,7 +69,7 @@ function PaginaPrincipal() {
                 <div className="right-section">
                     <div className="stats-container">
                         <div className="stat-card ordenes">
-                            <span className="stat-value">12</span>
+                            <span className="stat-value">{ordenes.length}</span>
                             <span className="stat-label">Órdenes</span>
                         </div>
                         <div className="stat-card monto">
@@ -64,7 +78,7 @@ function PaginaPrincipal() {
                         </div>
                     </div>
 
-                    <div className="user-image">
+                    <div className="imagen-usuario">
                         <img src="/assets/image 37.png" alt="User" />
                     </div>
                 </div>
@@ -76,11 +90,11 @@ function PaginaPrincipal() {
                     <input type="text" placeholder="Buscar una orden..." />
                     <button>Buscar</button>
                 </div>
-                <div className="orders-table">
+                <div className="tabla-ordenes">
                     <table>
                         <thead>
                             <tr>
-                                <th>#ORDEN</th>
+                                <th>ORDEN</th>
                                 <th>Usuario</th>
                                 <th>Fecha de orden</th>
                                 <th>Total</th>
@@ -89,7 +103,7 @@ function PaginaPrincipal() {
                             </tr>
                         </thead>
                         <tbody>
-                            {ordenesEjemplo.map((orden, index) => (
+                            {ordenesPagina.map((orden, index) => (
                                 <tr key={index}>
                                     <td className="orden-id">{orden.id}</td>
                                     <td>{orden.usuario}</td>
@@ -109,7 +123,16 @@ function PaginaPrincipal() {
                     </table>
                 </div>
 
-            
+                
+                <div className="paginacion">
+                    <button onClick={() => cambiarPagina(paginaActual - 1)} disabled={paginaActual === 1}>
+                        Anterior
+                    </button>
+
+                    <button onClick={() => cambiarPagina(paginaActual + 1)} disabled={paginaActual === totalPaginas}>
+                        Siguiente
+                    </button>
+                </div>
             </div>
         </div>
     );
