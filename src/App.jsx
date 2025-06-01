@@ -23,6 +23,7 @@ import DetalleP from './pages/DetalleP/DetalleP'
 import Experiencias from './pages/Experiencias/Experiencias'
 import MantenimientoExperiencias from './components/MantenimientoExperiencias/MantenimientoExperiencias'
 import AgregarExperiencia from './components/AgregarExperiencia/AgregarExperiencia'
+import EditarExperiencia from './components/EditarExperiencia/EditarExperiencia'
 
 function App() {
   
@@ -58,6 +59,7 @@ function App() {
           <Route path="/experiencias" element={<Experiencias />} />
           <Route path="/mant-experiencias" element={<MantenimientoExperiencias />} />
           <Route path="/agregar-experiencia" element={<AgregarExperiencia />} />
+          <Route path="/editar-experiencia/:id" element={<EditarExperiencia />} />
         </Routes>
         <Footer/>
       </BrowserRouter>

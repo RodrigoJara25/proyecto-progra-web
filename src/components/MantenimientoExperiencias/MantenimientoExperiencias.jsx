@@ -9,76 +9,78 @@ function MantenimientoExperiencias({ }) {
             experiencia: "Cena para 2 en La Bisteca",
             comercio: "La Bisteca",
             costo: 100,
-            fecha_expiracion: "05/12/2025",
+            fecha_expiracion: "2025-12-05",
             usado: false,
+            imagen: null,
         },
         {
             id: 2,
             experiencia: "Clase de cocina en Casa Gourmet",
             comercio: "Casa Gourmet",
             costo: 50,
-            fecha_expiracion: "15/01/2025",
+            fecha_expiracion: "2025-01-15",
             usado: false,
+            imagen: null,
         },
         {
             id: 3,
             experiencia: "Tour de vinos en Bodega del Valle",
             comercio: "Bodega del Valle",
             costo: 75,
-            fecha_expiracion: "20/03/2025",
+            fecha_expiracion: "2025-03-20",
             usado: true,
+            imagen: null,
         },
         {
             id: 4,
             experiencia: "Masaje relajante en Spa Relax",
             comercio: "Spa Relax",
             costo: 60,
-            fecha_expiracion: "10/02/2025",
+            fecha_expiracion: "2025-02-10",
             usado: false,
+            imagen: null,
         },
         {
             id: 5,
             experiencia: "Entrada VIP a concierto de Rock",
             comercio: "Conciertos Rock",
             costo: 120,
-            fecha_expiracion: "30/04/2025",
+            fecha_expiracion: "2025-04-30",
             usado: true,
+            imagen: null,
         },
         {
             id: 6,
             experiencia: "Clase de yoga al aire libre",
             comercio: "Yoga Zen",
             costo: 30,
-            fecha_expiracion: "25/05/2025",
+            fecha_expiracion: "2025-05-25",
             usado: false,
+            imagen: null,
         },
         {
             id: 7,
             experiencia: "Excursión a la montaña con guía",
             comercio: "Aventura Montañosa",
             costo: 80,
-            fecha_expiracion: "18/06/2025",
+            fecha_expiracion: "2025-06-18",
             usado: false,
+            imagen: null,
         },
         {
             id: 8,
             experiencia: "Noche de cine en casa con palomitas",
             comercio: "Cine en Casa",
             costo: 20,
-            fecha_expiracion: "01/07/2025",
+            fecha_expiracion: "2025-07-01",
             usado: true,
+            imagen: null,
         },
     ]);
 
-    const [newExperiencia, setNewExperiencia] = useState({
-        experiencia: "",
-        comercio: "",
-        costo: 0,
-        fecha_expiracion: "",
-        usado: false,
-    });
-    
-
+    const handleDelete = (id) => {
+        setExperiencias(experiencias.filter(exp => exp.id !== id));
+    }
 
     return (
         <div className="mantenimiento-experiencias-container">
@@ -121,12 +123,10 @@ function MantenimientoExperiencias({ }) {
                                     <td>{exp.fecha_expiracion}</td>
                                     <td>{exp.usado ? "Sí" : "No"}</td>
                                     <td className="acciones-exp">
-                                        <Link to="/editar-experiencia">
+                                        <Link to={`/editar-experiencia/${exp.id}`}>
                                             <button className="btn-editar-exp">Editar</button>
                                         </Link>
-                                        <Link to="/elimnar-experiencia">
-                                            <button className="btn-eliminar-exp">Eliminar</button>
-                                        </Link>
+                                        <button onClick={() => handleDelete(exp.id)} className="btn-eliminar-exp">Eliminar</button>
                                     </td>
                                 </tr>
                             ))}
