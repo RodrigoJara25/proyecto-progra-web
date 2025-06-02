@@ -1,40 +1,22 @@
 import { useState } from 'react';
 import './PaginaPrincipal.scss';
+import { Link } from 'react-router-dom';
+import ordenesEjemplo from '../../api/ordenesData';
 
-function PaginaPrincipal() {
-    const ordenes = [
-        { id: '#7231', usuario: 'Juan Perez', fecha: '20/01/2025', total: '$199.00', estado: 'Entregado' },
-        { id: '#7232', usuario: 'María González', fecha: '20/01/2025', total: '$200.00', estado: 'Por entregar' },
-        { id: '#7233', usuario: 'Marco Aurelio', fecha: '21/01/2025', total: '$199.00', estado: 'Entregado' },
-        { id: '#7234', usuario: 'Ana Díaz', fecha: '24/01/2025', total: '$199.00', estado: 'Entregado' },
-        { id: '#7235', usuario: 'Juan Perez', fecha: '20/01/2025', total: '$150.00', estado: 'Entregado' },
-        { id: '#7236', usuario: 'Mario González', fecha: '20/01/2025', total: '$198.00', estado: 'Por entregar' },
-        { id: '#7237', usuario: 'Mario Aurelio', fecha: '22/01/2025', total: '$199.00', estado: 'Entregado' },
-        { id: '#7238', usuario: 'Ana Silva', fecha: '20/01/2025', total: '$160.00', estado: 'Entregado' },
-        { id: '#7239', usuario: 'Juan Perez', fecha: '20/01/2025', total: '$199.00', estado: 'Entregado' },
-        { id: '#7240', usuario: 'Martín González', fecha: '23/01/2025', total: '$197.00', estado: 'Por entregar' }
-    ];
-
-    const datospersonales = {
-        nombre: 'Andrew Huancaya',
-        correo: 'andrewhuancaya@gmail.com',
-        fecha_registro: '31/01/2025'
-    };
+function PaginaPrincipal({ usuario }) {
+    const ordenes = ordenesEjemplo;
 
     const direnvio = {
         direccion: 'Av. La Molina 123',
         telefonocontacto: '991264864'
     };
 
-    
-    const [paginaActual,setPaginaActual] = useState(1);
+    const [paginaActual, setPaginaActual] = useState(1);
     const ordenesPorPagina = 5;
-
-    const indiceInicio = (paginaActual-1) * ordenesPorPagina;
+    const indiceInicio = (paginaActual - 1) * ordenesPorPagina;
     const indiceFin = indiceInicio + ordenesPorPagina;
-    const ordenesPagina = ordenes.slice(indiceInicio,indiceFin);
-
-    const totalPaginas = Math.ceil(ordenes.length/ordenesPorPagina);  
+    const ordenesPagina = ordenes.slice(indiceInicio, indiceFin);
+    const totalPaginas = Math.ceil(ordenes.length / ordenesPorPagina);
 
     const cambiarPagina = (nuevaPagina) => {
         if (nuevaPagina >= 1 && nuevaPagina <= totalPaginas) {
@@ -42,18 +24,30 @@ function PaginaPrincipal() {
         }
     };
 
+    if (!usuario) {
+        return <div>Cargando datos del usuario...</div>;
+    }
+
     return (
         <div className="pagina-principal">
-            <h2 className="texto-bienvenida">Hola {datospersonales.nombre}!</h2>
+            <h2 className="texto-bienvenida">Hola {usuario.nombre} {usuario.apellido}!</h2>
 
             <div className="seccion-info-usuarios">
                 <div className="seccion-izquierda">
                     <div className="info-card datos-personales">
                         <h3>Datos personales</h3>
                         <div className="info-contenido">
-                            <p><span>Nombre:</span> {datospersonales.nombre}</p>
-                            <p><span>Correo:</span> {datospersonales.correo}</p>
-                            <p><span>Fecha de registro:</span>{datospersonales.fecha_registro}</p>
+                            <p><span>Nombre:</span> {usuario.nombre} {usuario.apellido}</p>
+                            <p><span>Correo:</span> {usuario.correo}</p>
+                            <p><span>Fecha de registro:</span>{usuario.fecha_registro}</p>
+                        </div>
+                        <div className="botones-usuario">
+                            <Link to="/mis-datos" className="btn-accion-usuario">
+                                Ver/Editar Datos
+                            </Link>
+                            <Link to="/cambiar-contrasena" className="btn-accion-usuario">
+                                Cambiar Contraseña
+                            </Link>
                         </div>
                     </div>
 
@@ -105,13 +99,15 @@ function PaginaPrincipal() {
                         <tbody>
                             {ordenesPagina.map((orden) => (
                                 <tr key={orden.id}>
-                                    <td className="orden-id">{orden.id}</td>
+                                    <td className="orden-id">#{orden.id}</td>
                                     <td>{orden.usuario}</td>
                                     <td>{orden.fecha}</td>
-                                    <td>{orden.total}</td>
+                                    <td>S/ {orden.total.toFixed(2)}</td>
                                     <td>{orden.estado}</td>
                                     <td>
-                                        <button className="ver-detalles">Ver detalles</button>
+                                        <Link to={`/orden/${orden.id}`} className="ver-detalles">
+                                            Ver detalles
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}
