@@ -5,7 +5,7 @@ function Footer() {
         <div className="footer">
             <div className="footer-siguenos">
                 <h3>Siguenos</h3>
-                <div>
+                <div className="footer-siguenos-icons">
                     <img src="/assets/facebook.png" alt="" />
                     <img src="/assets/x.png" alt="" />
                     <img src="/assets/instagram.png" alt="" />

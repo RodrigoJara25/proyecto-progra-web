@@ -4,7 +4,8 @@ import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Login from './pages/Login/Login'
-import apis from './api/ProductosApi';
+import apis from './api/ProductosApi'
+import { getUsuario, updateUsuario } from './api/usuarioData'
 import { useState, useEffect } from 'react'
 import AgregarProducto from './pages/AgregarProducto/AgregarProducto'
 import EditarProducto from './pages/EditarProducto/EditarProducto'
@@ -29,6 +30,8 @@ import AgregarComercio from './components/AgregarComercio/AgregarComercio'
 import EditarComercio from './components/EditarComercio/EditarComercio'
 import ListaCategorias from './pages/ListaCategorias/ListaCategorias'
 import PaginaPrincipal from './pages/PaginaPrincipal/PaginaPrincipal'
+import DatosUsuario from './pages/DatosUsuario/DatosUsuario'
+import CambiarPassword from './pages/CambiarPassword/CambiarPassword'
 
 import Checkout from './pages/Checkout/Checkout'
 import DetalleProducto from './pages/DetalleProducto/DetalleProducto'
@@ -49,6 +52,13 @@ function App() {
   const [lista_categorias, setListaCategorias] = useState(() => {
     return productosApi.obtenerCategorias();
   })
+
+  const [usuarioActual, setUsuarioActual] = useState(() => getUsuario());
+
+  const handleUpdateUsuario = (datosNuevosDelFormulario) => {
+    const usuarioActualizadoDesdeApi = updateUsuario(datosNuevosDelFormulario);
+    setUsuarioActual(usuarioActualizadoDesdeApi);
+  };
 
   useEffect(() => {
     productosApi.guardarProductos(lista_productos);
@@ -71,7 +81,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardAdmin/>} />
           <Route path="/registro" element={<Register />} />
           <Route path="/olvide-contraseña" element={<Password />} />
-          <Route path="/detail-order" element={<DetalleOrd />} />
+          <Route path="/orden/:idOrden" element={<DetalleOrd />} />
           <Route path="/detail-user" element={<DetalleUs />} />
           <Route path="/list-users" element={<ListaUs />} />
           <Route path="/detail-product" element={<DetalleP />} />
@@ -83,7 +93,9 @@ function App() {
           <Route path="/agregar-comercio" element={<AgregarComercio />} />
           <Route path="/editar-comercio/:id" element={<EditarComercio />} />
           <Route path="/lista-categorias" element={<ListaCategorias categorias={lista_categorias} setCategorias={setListaCategorias}/>} />
-          <Route path="/pagina-principal" element={<PaginaPrincipal />} />
+          <Route path="/pagina-principal" element={<PaginaPrincipal usuario={usuarioActual} />} />
+          <Route path="/mis-datos" element={<DatosUsuario usuarioOriginal={usuarioActual} onGuardarCambios={handleUpdateUsuario} />} />
+          <Route path="/cambiar-contrasena" element={<CambiarPassword />} />
           <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/metodoPago" element={<MetodoPago />}>
             <Route index element={<SelectorMetodoPago />} />
