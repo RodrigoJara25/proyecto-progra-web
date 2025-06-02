@@ -16,7 +16,7 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
               <FormGroup label="Nombre del producto" htmlFor="nombre">
                 <input
                     type="text"
-                    id="nombre"
+                    id="nombreProducto"
                     name="nombre"
                     required
                     placeholder="Nombre del producto"
@@ -42,7 +42,6 @@ const FormProduct = ({ onSubmit, modo , producto = {}, iconoImg }) => {
                   <select
                     id="categoria"
                     name="categoria"
-                    required
                     defaultValue={producto.categoria || ""}                      
                     disabled={modo === "Detalle Producto"}                    
                         >    
