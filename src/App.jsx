@@ -37,6 +37,8 @@ import PagoQR from './pages/PagoQR/PagoQR'
 import SelectorMetodoPago from './components/SelectorMetodoPago/SelectorMetodoPago'
 import PagoTarjeta from './pages/PagoTarjeta/PagoTarjeta'
 import OrdenCompletada from './pages/OrdenCompletada/OrdenCompletada'
+import Categorias from './pages/Categorias/Categorias'
+import ListaOrd from './pages/ListaOrd/ListaOrd'
 
 function App() {
   
@@ -54,7 +56,7 @@ function App() {
     productosApi.guardarProductos(lista_productos);
   }, [lista_productos]);
 
-  return (
+    return (
     <>
       <BrowserRouter>
         <Header/>

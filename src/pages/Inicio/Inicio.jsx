@@ -1,85 +1,104 @@
-import "./Inicio.scss"
-import banner from "../../assets/banner.png"
-import platano from "../../assets/platano.png"
-import pollocr from "../../assets/pollo.png"
-import zanahorias from "../../assets/zanahoria.png"
-import azucar from "../../assets/azucar.png"
-import avena from "../../assets/avena.png"
-import cafe from "../../assets/cafe.png"
-import carnes from "../../assets/carnes.png"
-import arroz from "../../assets/abarrotes.png"
-import cloro from "../../assets/limpieza.png"
+import { useState, useEffect } from "react";
+import "./Inicio.scss";
+import banner from "../../assets/banner.png";
+import platano from "../../assets/platano.png";
+import pollocr from "../../assets/pollo.png";
+import zanahorias from "../../assets/zanahoria.png";
+import azucar from "../../assets/azucar.png";
+import avena from "../../assets/avena.png";
+import cafe from "../../assets/cafe.png";
+import carnes from "../../assets/carnes.png";
+import arroz from "../../assets/abarrotes.png";
+import cloro from "../../assets/limpieza.png";
 
 function Inicio() {
-    return(
-        <>
+  const [currentBannerSlide, setCurrentBannerSlide] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
-        <div class="banner">
-            <img src={banner} alt="aaaaaa" id="bannerimg"/>
-        </div>
+    const handleAddToCart = (e) => {
+        e.preventDefault();
+        const button = e.currentTarget;
+        button.textContent = 'AGREGADO ✓';
+        button.style.backgroundColor = '#4caf50';
+        
+        setTimeout(() => {
+        button.textContent = 'AGREGAR';
+        button.style.backgroundColor = '#ff6b6b';
+        }, 2000);
+    };
 
-        <main class="main-content">
+    const handleCategoryClick = (e, categoryName) => {
+    e.preventDefault();
+    alert(`Navegando a categoría: ${categoryName}`);
+    };
+
+    return (
+    <>
+      <div className="banner">
+        <img src={banner} alt="Banner promocional" id="bannerimg"/>
+      </div>
+
+      <main className="main-content">
         <section>
-            <h2 class="section-title">Explora las categorías</h2>
-            <div class="categories-grid">
-                <a href="#" class="category-item">
-                    <div class="category-icon"><img src={platano} alt="platanos" width="80px"/></div>
-                    <div class="category-name">Frutas y verduras</div>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon"><img src={carnes} alt="platanos" width="80px"/></div>
-                    <div class="category-name">Carnes, aves y pescado</div>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon"><img src={arroz} alt="platanos" width="80px"/></div>
-                    <div class="category-name">Abarrotes</div>
-                </a>
-                <a href="#" class="category-item">
-                    <div class="category-icon"><img src={cloro} alt="platanos" width="80px"/></div>
-                    <div class="category-name">Limpieza</div>
-                </a>
-            </div>
+          <h2 className="section-title">Explora las categorías</h2>
+          <div className="categories-grid">
+            <a href="#" className="category-item" onClick={(e) => handleCategoryClick(e, "Frutas y verduras")}>
+              <div className="category-icon"><img src={platano} alt="platanos" width="80px"/></div>
+              <div className="category-name">Frutas y verduras</div>
+            </a>
+            <a href="#" className="category-item" onClick={(e) => handleCategoryClick(e, "Carnes, aves y pescado")}>
+              <div className="category-icon"><img src={carnes} alt="Carnes" width="80px"/></div>
+              <div className="category-name">Carnes, aves y pescado</div>
+            </a>
+            <a href="#" className="category-item" onClick={(e) => handleCategoryClick(e, "Abarrotes")}>
+              <div className="category-icon"><img src={arroz} alt="Abarrotes" width="80px"/></div>
+              <div className="category-name">Abarrotes</div>
+            </a>
+            <a href="#" className="category-item" onClick={(e) => handleCategoryClick(e, "Limpieza")}>
+              <div className="category-icon"><img src={cloro} alt="Limpieza" width="80px"/></div>
+              <div className="category-name">Limpieza</div>
+            </a>
+          </div>
         </section>
 
         <section>
-            <h2 class="section-title">Lo más vendido</h2>
-            <div class="products-grid">
-                <a href="#" class="product-card">
-                    <img src={pollocr} alt="Pollo Fresco"/>
-                    <div class="product-title">Pollo Entero Fresco con presentación</div>
-                    <div class="product-price">$2.48 $3</div>
-                    <button class="btn-agregar">AGREGAR</button>
-                </a>
-                <a href="#" class="product-card">
-                    <img src={zanahorias} alt="Zanahorias"/>
-                    <div class="product-title">Zanahorias Orgánicas especiales</div>
-                    <div class="product-price">$1.99 $2.53</div>
-                    <button class="btn-agregar">AGREGAR</button>
-                </a>
-                <a href="#" class="product-card">
-                    <img src={azucar} alt="Azucar"/>
-                    <div class="product-title">Azucar moreno BELL'S</div>
-                    <div class="product-price">$1.19 $1.59</div>
-                    <button class="btn-agregar">AGREGAR</button>
-                </a>
-                <a href="#" class="product-card">
-                    <img src={avena} alt="Avena"/>
-                    <div class="product-title">Avena QUAKER tradicional</div>
-                    <div class="product-price">$0.99 $1.29</div>
-                    <button class="btn-agregar">AGREGAR</button>
-                </a>
-                <a href="#" class="product-card">
-                    <img src={cafe} alt="Café"/>
-                    <div class="product-title">Café Instantáneo ALTOMAYO</div>
-                    <div class="product-price">$6.99 $8.50</div>
-                    <button class="btn-agregar">AGREGAR</button>
-                </a>
-            </div>
+          <h2 className="section-title">Lo más vendido</h2>
+          <div className="products-grid">
+            <a href="#" className="productos-card">
+              <img src={pollocr} alt="Pollo Fresco"/>
+              <div className="product-title">Pollo Entero Fresco con presentación</div>
+              <div className="product-price">S/9.40 X KG</div>
+              <button className="btn-agregar" onClick={handleAddToCart}>AGREGAR</button>
+            </a>
+            <a href="#" className="productos-card">
+              <img src={zanahorias} alt="Zanahorias"/>
+              <div className="product-title">Zanahorias Orgánicas especiales</div>
+              <div className="product-price">S/9.40 X KG</div>
+              <button className="btn-agregar" onClick={handleAddToCart}>AGREGAR</button>
+            </a>
+            <a href="#" className="productos-card">
+              <img src={azucar} alt="Azucar"/>
+              <div className="product-title">Azucar moreno BELL'S</div>
+              <div className="product-price">S/9.40 X KG</div>
+              <button className="btn-agregar" onClick={handleAddToCart}>AGREGAR</button>
+            </a>
+            <a href="#" className="productos-card">
+              <img src={avena} alt="Avena"/>
+              <div className="product-title">Avena QUAKER tradicional</div>
+              <div className="product-price">S/9.40 X KG</div>
+              <button className="btn-agregar" onClick={handleAddToCart}>AGREGAR</button>
+            </a>
+            <a href="#" className="productos-card">
+              <img src={cafe} alt="Café"/>
+              <div className="product-title">Café Instantáneo ALTOMAYO</div>
+              <div className="product-price">S/9.40 X KG</div>
+              <button className="btn-agregar" onClick={handleAddToCart}>AGREGAR</button>
+            </a>
+          </div>
         </section>
-        </main>
-        </>
-    );
-
+      </main>
+    </>
+  );
 }
 
 export default Inicio;
