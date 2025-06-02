@@ -5,6 +5,7 @@
         }
 
         h1 {
+            text-align: left;
             color: #333;
             margin-bottom: 30px;
             font-size: 28px;
@@ -144,6 +145,7 @@
         }
 
         .view-details-btn {
+            all: unset;
             background: #ff6b6b;
             color: white;
             border: none;
