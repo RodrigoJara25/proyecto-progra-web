@@ -22,6 +22,8 @@ import Inicio from './pages/Inicio/Inicio'
 import DetalleP from './pages/DetalleP/DetalleP'
 import Checkout from './pages/Checkout/Checkout'
 import DetalleProducto from './pages/DetalleProducto/DetalleProducto'
+import Categorias from './pages/Categorias/Categorias'
+import ListaOrd from './pages/ListaOrd/ListaOrd'
 
 function App() {
   
@@ -34,30 +36,12 @@ function App() {
     productosApi.guardarProductos(lista_productos);
   }, [lista_productos]);
 
-  return (
+    return (
     <>
       <BrowserRouter>
         <Header/>
         <Navbar/>
-        <Routes>
-          <Route path="/" element={<Inicio />} /> 
-          <Route path="/login" element={<Login />} />
-          <Route path="/products" element={<TablaProductos productos={lista_productos} setLista_Productos={setLista_Productos} />} />
-          <Route path="/agregar" element={<AgregarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
-          <Route path="/editar/:id" element={<EditarProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos} />} />
-          <Route path="/carrito" element={<CarroCompras lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
-          <Route path="/Detalle-producto-admin/:id" element={<DetalleProducto lista_productos={lista_productos} setLista_Productos={setLista_Productos}/>}/>
-          <Route path="/dashboard" element={<DashboardAdmin/>} />
-          <Route path="/agregarCategoria" element={<AgregarCategoria />}/>
-          <Route path="/products" element={<ViewProducts/>}/>
-          <Route path="/registro" element={<Register />} />
-          <Route path="/olvide-contraseña" element={<Password />} />
-          <Route path="/detail-order" element={<DetalleOrd />} />
-          <Route path="/detail-user" element={<DetalleUs />} />
-          <Route path="/list-users" element={<ListaUs />} />
-          <Route path="/detail-product" element={<DetalleP />} />
-          <Route path="/checkout" element={<Checkout/>}/>
-        </Routes>
+        <DetalleP/>
         <Footer/>
       </BrowserRouter>
     </>

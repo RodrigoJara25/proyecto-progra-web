@@ -58,70 +58,71 @@ function ListaUs() {
     }, [searchTerm, users]);
 
     return (
-        <div className="container">
-            <h1>Listado de usuarios</h1>
-        
-            <div className="search-section">
-                <input 
-                    type="text" 
-                    className="user-search" 
-                    placeholder="Buscar un usuario..." 
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button className="search-user-btn">Buscar</button>
-            </div>
+    <div className="container">
+        <h1>Listado de usuarios</h1>
 
-            <div className="users-table">
-                <div className="table-header">
-                    <div>Nombre completo</div>
-                    <div id="fechaR">Fecha de registro</div>
-                    <div id="Estado">Estado</div>
-                    <div>Acciones</div>
-                </div>
-                
-                <div id="usersContainer">
-                    {filteredUsers.map((user) => (
-                        <div className="user-row" key={user.name}>
-                            <div className="user-info-cell">
-                                <div className="user-avatar">{user.avatar}</div>
-                                <div className="user-name" id="nombre">{user.name}</div>
-                            </div>
-                            <div>{user.date}</div>
-                            <div>
-                                <span className={`status ${user.status}`}>
-                                    {user.status === 'active' ? 'Activo' : 'Inactivo'}
-                                </span>
-                            </div>
-                            <div className="actions">
-                                <button 
-                                    className="action-btn deactivate-btn" 
-                                    onClick={() => toggleUserStatus(user.name)}
-                                >
-                                    {user.status === 'active' ? 'Desactivar' : 'Activar'}
-                                </button>
-                                <button 
-                                    className="action-btn details-btn" 
-                                    onClick={() => viewDetails(user.name)}
-                                >
-                                    Ver detalles
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+        <div className="search-section">
+            <input 
+                type="text" 
+                className="user-search" 
+                placeholder="Buscar un usuario..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button className="search-user-btn">Buscar</button>
+        </div>
 
-            <div className="pagination">
-                <button onClick={previousPage}>←</button>
+    <table className="users-table">
+        <thead>
+            <tr className="table-header">
+                <th>Nombre completo</th>
+                <th>Fecha de registro</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {filteredUsers.map((user) => (
+                <tr className="user-row" key={user.name}>
+                    <td className="user-info-cell">
+                        <div className="user-avatar">{user.avatar}</div>
+                        <div className="user-name">{user.name}</div>
+                    </td>
+                    <td>{user.date}</td>
+                    <td>
+                        <span className={`status ${user.status}`}>
+                            {user.status === 'active' ? 'Activo' : 'Inactivo'}
+                        </span>
+                    </td>
+                    <td className="actions">
+                        <button 
+                            className="action-btn deactivate-btn" 
+                            onClick={() => toggleUserStatus(user.name)}
+                        >
+                            {user.status === 'active' ? 'Desactivar' : 'Activar'}
+                        </button>
+                        <button 
+                            className="action-btn details-btn" 
+                            onClick={() => viewDetails(user.name)}
+                        >
+                            Ver detalles
+                        </button>
+                    </td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
+
+    <div className="pagination">
+        <button onClick={previousPage}>←</button>
                 <button className={currentPage === 1 ? 'active' : ''} onClick={() => setCurrentPage(1)}>1</button>
                 <button className={currentPage === 2 ? 'active' : ''} onClick={() => setCurrentPage(2)}>2</button>
                 <button className={currentPage === 3 ? 'active' : ''} onClick={() => setCurrentPage(3)}>3</button>
                 <span className="dots">...</span>
                 <button className={currentPage === 10 ? 'active' : ''} onClick={() => setCurrentPage(10)}>10</button>
                 <button onClick={nextPage}>→</button>
-            </div>
-        </div>
+    </div>
+</div>
     );
 }
 
